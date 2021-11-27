@@ -7,7 +7,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Arrays;
+    import javax.persistence.Column;
+    import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,6 +24,20 @@ public class UsuarioDTO implements UserDetails {
     private String confirmacaoSenha;
 
     private Boolean active;
+
+    private String role;
+
+    private String Name;
+
+    private int Age;
+
+    private String Gender;
+
+    private String Address;
+
+    private String CivilId;
+
+    private String cpf;
 
     private List<GrantedAuthority> authorityList;
 

@@ -44,14 +44,8 @@ public class Usuario {
     private String CivilId;
 
     @Column
+    private String cpf;
+
+    @Column
     private Boolean active;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Adocao> adocaoList;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Duvida> duvidaList;
-
-
-
 }

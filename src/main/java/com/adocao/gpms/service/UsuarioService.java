@@ -23,9 +23,33 @@ public class UsuarioService {
     }
 
     public Usuario cadastrarUsuario(UsuarioDTO dto) {
+
         Usuario usuario = new Usuario();
         usuario.setEmail(dto.getEmail());
         usuario.setPassword(dto.getSenha());
+        usuario.setRole("ROLE_USER");
+        usuario.setName(dto.getUsername());
+        usuario.setAge(dto.getAge());
+        usuario.setGender(dto.getGender());
+        usuario.setAddress(dto.getAddress());
+        usuario.setCpf(dto.getCpf());
+        usuario.setActive(true);
+
+        return usuarioRepository.save(usuario);
+    }
+
+    public Usuario cadastrarUsuarioAdm(UsuarioDTO dto) {
+        Usuario usuario = new Usuario();
+        usuario.setEmail(dto.getEmail());
+        usuario.setPassword(dto.getSenha());
+        usuario.setRole("ROLE_ADMIN");
+        usuario.setName(dto.getUsername());
+        usuario.setAge(dto.getAge());
+        usuario.setGender(dto.getGender());
+        usuario.setAddress(dto.getAddress());
+        usuario.setCpf(dto.getCpf());
+        usuario.setActive(true);
+
         return usuarioRepository.save(usuario);
     }
 }
