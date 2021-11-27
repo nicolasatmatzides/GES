@@ -2,7 +2,6 @@ package com.adocao.gpms.entity;
 
 import javax.persistence.*;
 
-import com.adocao.gpms.model.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,7 +26,7 @@ public class Usuario {
     private String password;
 
     @Column
-    private Role role;
+    private String role;
 
     @Column
     private String Name;
@@ -43,6 +42,9 @@ public class Usuario {
 
     @Column
     private String CivilId;
+
+    @Column
+    private Boolean active;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Adocao> adocaoList;
