@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class LoginController {
 
-    @GetMapping("/")
-    public ResponseEntity initialMessage() {
-        return ResponseEntity.ok().body("<h1>Welcome</h1>");
-    }
 
     @GetMapping("/homepage")
     public String home() {

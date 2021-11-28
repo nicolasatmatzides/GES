@@ -4,6 +4,7 @@ package com.adocao.gpms.controller;
 import com.adocao.gpms.model.login.UsuarioDTO;
 import com.adocao.gpms.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
