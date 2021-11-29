@@ -40,3 +40,47 @@
     color: #FFFFFF;
     text-decoration: underline;
 }
+
+section {
+    padding: 50px 0 0 0;
+}
+
+section h4 {
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #555555;
+    margin-bottom: 50px;
+}
+
+section .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 992px) {
+    section .cards .card {
+        margin-bottom: 20px;
+    }
+
+    section .cards .card:last-child {
+        margin: 0;
+    }   
+}
+
+section .cards .card .card-body * {
+    margin: 10px;
+}
+
+section .cards .card .card-footer {
+    background-color: #FFFFFF;
+    border: none;
+    padding: 0 26px 26px 26px
+}
+
+section .cards .card .card-footer span {
+    font-size: 14px;
+    color: #555555;
+}
