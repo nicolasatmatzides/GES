@@ -30,3 +30,13 @@
     outline: none !important;
     border: 2px solid #FF6243;
 }
+
+.link-carousel {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.link-carousel:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
