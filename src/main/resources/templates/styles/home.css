@@ -93,6 +93,18 @@ section #form-contact {
     width: 24rem;
 }
 
+@media (max-width: 500px) {
+    section #form-contact {
+        width: 18rem;
+    }
+}
+
+@media (max-width: 400px) {
+    section #form-contact {
+        width: 15rem;
+    }
+}
+
 section:last-child {
     display: flex;
     flex-direction: column;
@@ -103,6 +115,12 @@ section #form-contact button {
     background-color: #FF6243;
     color: #FFFFFF;
     padding: 5px 30px;
+}
+
+section #form-contact textarea:focus {
+    outline: none !important;
+    box-shadow: none;
+    border: 2px solid #FF6243;
 }
 
 footer {
