@@ -19,8 +19,5 @@ public class HelloApiController {
         return ResponseEntity.ok().body("<h1>Hello User</h1>");
     }
 
-    @GetMapping( "/admin")
-    public ResponseEntity getAdminMessage() {
-        return ResponseEntity.ok().body("<h1>Hello Admin</h1>");
-    }
+
 }

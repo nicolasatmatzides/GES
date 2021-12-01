@@ -1,5 +1,6 @@
 package com.adocao.gpms.entity;
 
+import com.adocao.gpms.model.AdocaoStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +21,7 @@ public class Crianca {
     private String Name;
 
     @Column
-    private int Age;
+    private String Age;
 
     @Column
     private String Gender;
@@ -31,6 +32,6 @@ public class Crianca {
     @Column
     private String CivilId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Adocao adocao;
+    @Column
+    private AdocaoStatus adocaoStatus = AdocaoStatus.EMPTY;
 }

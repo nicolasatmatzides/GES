@@ -26,7 +26,7 @@ public class Adocao {
     private Usuario usuario;
 
     @Column
-    private AdocaoStatus adocaoStatus = AdocaoStatus.EMPTY;
+    private AdocaoStatus adocaoStatus;
 
 
 }

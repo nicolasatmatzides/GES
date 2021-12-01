@@ -1,6 +1,5 @@
 package com.adocao.gpms.controller;
 
-
 import com.adocao.gpms.model.login.UsuarioDTO;
 import com.adocao.gpms.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,30 +10,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/usuario")
+@RequestMapping("/admin")
 @Controller
-public class UsuarioController {
+public class AdminController {
 
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping("/cadastrar")
-    public String cadastrarUsuario() {
+    @GetMapping("/cadastrarAdm")
+    public String cadastrarUsuarioAdm() {
         return "usuario/cadastrar";
     }
 
-
-    @PostMapping("/cadastrar")
-    public String cadastrarUsuario(UsuarioDTO dto, Model model) {
+    @PostMapping("/cadastrarAdm")
+    public String cadastrarUsuarioAdm(UsuarioDTO dto, Model model) {
         if (!dto.getSenha().equals(dto.getConfirmacaoSenha())) {
             model.addAttribute("errorMessage", "Senha e confirmação de senha estão diferentes");
             return "usuario/cadastrar";
         }
 
-        usuarioService.cadastrarUsuario(dto);
+        usuarioService.cadastrarUsuarioAdm(dto);
 
         return "redirect:/login";
     }
-
-
 }
