@@ -31,7 +31,7 @@ public class CriancaService {
     public List<Crianca> listaCriancaDisponiveis() {
         List<Crianca> criancaList = new ArrayList<>();
         try {
-            criancaList = criancaRepository.findAllByAdocaoStatus_Empty();
+            criancaList = criancaRepository.findAllByAdocaoStatus(AdocaoStatus.EMPTY);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -41,7 +41,7 @@ public class CriancaService {
     public List<Crianca> listarCriancaSucesso() {
         List<Crianca> criancaList = new ArrayList<>();
         try {
-            criancaList = criancaRepository.findAllByAdocaoStatus_Completed();
+            criancaList = criancaRepository.findAllByAdocaoStatus(AdocaoStatus.COMPLETED);
         }catch (Exception e){
             e.printStackTrace();
         }
