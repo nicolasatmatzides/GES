@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
             
             <span>Entrar</span>
 
-            <form action="" method="post">
+            <form class="mt-5" th:action="@{/login}" method="post">
 
                 <div class="form-label">
                     <input type="email" class="form-control" placeholder="Email">

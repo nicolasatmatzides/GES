@@ -29,7 +29,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,"/admin").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET,"/user").hasAnyRole("ADMIN","USER")
                 .antMatchers("/").permitAll()
-                .and().formLogin();
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
     }
 
 }
