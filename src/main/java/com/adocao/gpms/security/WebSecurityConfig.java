@@ -28,10 +28,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.GET,"/admin").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET,"/user").hasAnyRole("ADMIN","USER")
+                .antMatchers("/css/", "/images/", "/js/**").permitAll()
+                .antMatchers("/templates/").permitAll()
                 .antMatchers("/").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .loginProcessingUrl("/home")
                 .permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
