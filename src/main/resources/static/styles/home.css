@@ -1,0 +1,133 @@
+body {
+    background-color: #F2F2F5;
+}
+
+.navbar {
+    -webkit-box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.1); 
+    box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.1);
+    padding: 10px;
+    background-color: #FFFFFF;
+}
+
+#btn-exit {
+    background-color: transparent;
+    border: none;
+}
+
+#form-search {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#input-search {
+    border: none;
+    border-radius: 5px;
+    background-color: #F2F2F5;
+    padding: 5px 10px;
+    width: 164px;
+    color: #333333;
+}
+
+#input-search:focus {
+    outline: none !important;
+    border: 2px solid #FF6243;
+}
+
+.link-carousel {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.link-carousel:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+section {
+    padding: 50px 0 0 0;
+}
+
+section h4 {
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #555555;
+    margin-bottom: 50px;
+}
+
+section .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 992px) {
+    section .cards .card {
+        margin-bottom: 20px;
+    }
+
+    section .cards .card:last-child {
+        margin: 0;
+    }
+}
+
+section .cards .card .card-body * {
+    margin: 10px;
+}
+
+section .cards .card .card-footer {
+    background-color: #FFFFFF;
+    border: none;
+    padding: 0 26px 26px 26px
+}
+
+section .cards .card .card-footer span {
+    font-size: 14px;
+    color: #555555;
+}
+
+section #form-contact {
+    width: 24rem;
+}
+
+@media (max-width: 500px) {
+    section #form-contact {
+        width: 18rem;
+    }
+}
+
+@media (max-width: 400px) {
+    section #form-contact {
+        width: 15rem;
+    }
+}
+
+section:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section #form-contact button {
+    background-color: #FF6243;
+    color: #FFFFFF;
+    padding: 5px 30px;
+}
+
+section #form-contact textarea:focus {
+    outline: none !important;
+    box-shadow: none;
+    border: 2px solid #FF6243;
+}
+
+footer {
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0 15px 0;
+    margin-top: 50px;
+}
