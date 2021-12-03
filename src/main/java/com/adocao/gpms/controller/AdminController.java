@@ -28,9 +28,7 @@ public class AdminController {
             model.addAttribute("errorMessage", "Senha e confirmação de senha estão diferentes");
             return "usuario/cadastrar";
         }
-
         usuarioService.cadastrarUsuarioAdm(dto);
-
         return "redirect:/login";
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,14 +20,14 @@
             
             <span>Cadastrar</span>
 
-            <form action="" method="post" id="form-register">
+            <form class="mt-5" th:action="@{/usuario/cadastrar}" method="post">
 
                 <div class="form-label">
                     <input type="text" class="form-control" placeholder="Nome" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="email" class="form-control" placeholder="Email" required>
+                    <input type="text" class="form-control" placeholder="Email" required>
                 </div>
 
                 <div class="form-label">
@@ -52,7 +52,7 @@
 
             </form>
 
-            <a href="login.html" target="_blank">Já possui conta? <b>Faça login</b></a>
+            <a href="/login">Já possui conta? <b>Faça login</b></a>
 
         </div>
 

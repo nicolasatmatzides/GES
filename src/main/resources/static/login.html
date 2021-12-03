@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
-<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +18,7 @@
             
             <span>Entrar</span>
 
-            <form action="/login" method="post">
+            <form th:action="@{/login}" method="post">
 
                 <div class="form-label">
                     <input type="text" class="form-control" name="username" placeholder="Email">
@@ -36,8 +35,9 @@
                 </div>
 
             </form>
-
-            <a href="register.html">Não possui conta? <b>Cadastra-se</b></a>
+            <div>
+                <a href="usuario/cadastrar">Não possui conta? <b>Cadastra-se</b></a>
+            </div>
 
         </div>
 

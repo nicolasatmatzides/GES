@@ -23,16 +23,13 @@ public class UsuarioController {
         return "usuario/cadastrar";
     }
 
-
     @PostMapping("/cadastrar")
     public String cadastrarUsuario(UsuarioDTO dto, Model model) {
         if (!dto.getSenha().equals(dto.getConfirmacaoSenha())) {
             model.addAttribute("errorMessage", "Senha e confirmação de senha estão diferentes");
             return "usuario/cadastrar";
         }
-
         usuarioService.cadastrarUsuario(dto);
-
         return "redirect:/login";
     }
 
