@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/usuario")
 @Controller
 public class UsuarioController {
 
@@ -20,17 +19,17 @@ public class UsuarioController {
 
     @GetMapping("/cadastrar")
     public String cadastrarUsuario() {
-        return "usuario/cadastrar";
+        return "cadastrar.html";
     }
 
     @PostMapping("/cadastrar")
     public String cadastrarUsuario(UsuarioDTO dto, Model model) {
         if (!dto.getSenha().equals(dto.getConfirmacaoSenha())) {
             model.addAttribute("errorMessage", "Senha e confirmação de senha estão diferentes");
-            return "usuario/cadastrar";
+            return "/cadastrar";
         }
         usuarioService.cadastrarUsuario(dto);
-        return "redirect:/login";
+        return "redirect:/";
     }
 
 
