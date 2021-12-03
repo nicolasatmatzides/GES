@@ -12,12 +12,12 @@ import com.adocao.gpms.model.login.UsuarioDTO;
 @Controller
 public class LoginController {
 
-    @GetMapping("/homepage")
+    @GetMapping("/home")
     public String home() {
-        return "homepage";
+        return "home.html";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/")
     public String login() {
         return "login.html";
     }
