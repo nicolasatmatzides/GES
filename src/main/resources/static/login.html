@@ -19,15 +19,17 @@
             
             <span>Entrar</span>
 
-            <form th:action="@{/login}" method="post">
+            <form action="/login" method="post">
 
                 <div class="form-label">
-                    <input type="email" class="form-control" name="email" placeholder="Email">
+                    <input type="text" class="form-control" name="username" placeholder="Email">
                 </div>
 
                 <div class="form-label">
-                    <input type="password" class="form-control" name="senha" placeholder="Senha">
+                    <input type="password" class="form-control" name="password" placeholder="Senha">
                 </div>
+
+                <input name="_csrf" type="hidden" value="ac01bd64-66f4-4935-9ccd-cc6e2b849b3e">
 
                 <div class="form-label">
                     <input type="submit" class="form-control" value="Entrar">

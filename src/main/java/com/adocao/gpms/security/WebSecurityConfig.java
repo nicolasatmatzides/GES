@@ -30,10 +30,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,"/user").hasAnyRole("ADMIN","USER")
                 .antMatchers("/css/**", "/img/**", "/js/**").permitAll()
                 .antMatchers("/").permitAll()
-                .and().formLogin().loginPage("/login")
+                .and()
+                .formLogin().loginPage("/login")
+                .defaultSuccessUrl("/home.html", true)
+                .failureUrl("/login.html?error=true")
                 .permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
+        http.csrf().disable();
     }
 
 }
