@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import com.adocao.gpms.model.login.UsuarioDTO;
 
 @Controller
 public class LoginController {
@@ -24,5 +25,15 @@ public class LoginController {
     @GetMapping("/adote")
     public String adocao() {
         return "adocao";
+    }
+
+
+    @PostMapping("/login")
+    public String logar(UsuarioDTO dto, Model model) {
+        if (!dto.getSenha().equals(dto.getConfirmacaoSenha())) {
+            model.addAttribute("errorMessage", "Email ou senha incorretos.");
+            return "login.html";
+        }
+        return "home.html";
     }
 }
