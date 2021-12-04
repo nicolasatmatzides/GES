@@ -23,7 +23,10 @@ public class LoginController {
     }
 
     @GetMapping("/como-adotar")
-    public String comoadotar() { return "howtoadopt.html"; }
+    public String comoAdotar() { return "howtoadopt.html"; }
+
+    @GetMapping("/em-construcao")
+    public String emContrucao() { return "build.html"; }
 
     @GetMapping("/adote")
     public String adocao() {
