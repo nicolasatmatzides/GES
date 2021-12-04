@@ -31,12 +31,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/css/**", "/img/**", "/js/**").permitAll()
                 .antMatchers("/").permitAll()
                 .and()
-                .formLogin().loginPage("/login")
+                .formLogin().loginPage("/")
                 .defaultSuccessUrl("/home.html", true)
                 .failureUrl("/login.html?error=true")
                 .permitAll()
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/");
         http.csrf().disable();
     }
 
