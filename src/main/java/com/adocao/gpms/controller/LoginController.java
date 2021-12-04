@@ -22,6 +22,12 @@ public class LoginController {
         return "login.html";
     }
 
+    @GetMapping("/como-adotar")
+    public String comoAdotar() { return "howtoadopt.html"; }
+
+    @GetMapping("/em-construcao")
+    public String emContrucao() { return "build.html"; }
+
     @GetMapping("/adote")
     public String adocao() {
         return "adocao";
