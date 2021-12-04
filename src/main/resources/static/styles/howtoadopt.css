@@ -9,7 +9,23 @@ body {
     background-color: #FFFFFF;
 }
 
-#btn-exit {
+.li-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#btn-profile {
+    background-color: transparent;
+    border: none;
+    width: 33px;
+}
+
+#navbarDropdown2 {
+    padding: 0;
+}
+
+#navbarDropdown2 li form button {
     background-color: transparent;
     border: none;
 }
