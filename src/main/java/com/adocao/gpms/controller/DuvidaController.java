@@ -2,9 +2,8 @@ package com.adocao.gpms.controller;
 
 
 import com.adocao.gpms.entity.Duvida;
-import com.adocao.gpms.model.login.UsuarioDTO;
+import com.adocao.gpms.model.DuvidaDTO;
 import com.adocao.gpms.service.DuvidaService;
-import com.adocao.gpms.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/duvida")
+import java.util.List;
+
 @Controller
 public class DuvidaController {
 
@@ -20,17 +20,37 @@ public class DuvidaController {
     private DuvidaService duvidaService;
 
     @GetMapping("/nova")
-    public String cadastrarUsuario() {
+    public String cadastraDuvida() {
         return "duvida/nova";
     }
 
 
     @PostMapping("/nova")
-    public String cadastrarUsuario(Duvida duvida) {
+    public String cadastraDuvida(DuvidaDTO duvida) {
 
 
         duvidaService.cadastrarDuvida(duvida);
 
         return "redirect:/duvida/nova";
     }
+
+    @GetMapping("/duvidaLista")
+    public String listaDuvida(Model model){
+        List<Duvida> duvida = duvidaService.listaDuvida();
+
+        model.addAttribute("listaDuvida",duvida);
+
+        return "redirect:/duvidaLista";
+
+    }
+
+    @PostMapping("/duvida")
+    public String respondeDuvida(DuvidaDTO duvida) {
+
+
+        duvidaService.respondeDuvida(duvida);
+
+        return "redirect:/duvidaLista";
+    }
+
 }

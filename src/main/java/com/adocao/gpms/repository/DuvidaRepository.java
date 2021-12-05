@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface DuvidaRepository extends JpaRepository<Duvida, Long> {
 
-    List<Duvida> findDuvidaByid(Long id);
+    Duvida findDuvidaById(Long id);
 }
