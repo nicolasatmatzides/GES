@@ -30,4 +30,9 @@ public class AdminController {
         usuarioService.cadastrarUsuarioAdm(dto);
         return "redirect:/";
     }
+
+    @GetMapping("/loginAdm")
+    public String loginAdm(){ return "criancasAdm.html"; }
+
+
 }
