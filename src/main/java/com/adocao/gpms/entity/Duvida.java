@@ -22,4 +22,7 @@ public class Duvida {
     @Column
     private String resposta;
 
+    @ManyToOne
+    private Usuario usuario;
+
 }
