@@ -16,7 +16,7 @@ create table crianca (
                          civil_id varchar(255),
                          gender varchar(255),
                          name varchar(255),
-                         adocao_status integer,
+                         adocao_status ENUM('EMPTY','IN_PROGRESS','COMPLETED'),
                          primary key (id)
 );
 create table duvida (
