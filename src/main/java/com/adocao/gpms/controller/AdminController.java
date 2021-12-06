@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/admin")
 @Controller
 public class AdminController {
 
@@ -19,18 +18,21 @@ public class AdminController {
 
     @GetMapping("/cadastrarAdm")
     public String cadastrarUsuarioAdm() {
-        return "usuario/cadastrar";
+        return "/cadastrar";
     }
 
     @PostMapping("/cadastrarAdm")
     public String cadastrarUsuarioAdm(UsuarioDTO dto, Model model) {
         if (!dto.getSenha().equals(dto.getConfirmacaoSenha())) {
             model.addAttribute("errorMessage", "Senha e confirmação de senha estão diferentes");
-            return "usuario/cadastrar";
+            return "/cadastrar";
         }
-
         usuarioService.cadastrarUsuarioAdm(dto);
-
-        return "redirect:/login";
+        return "redirect:/home";
     }
+
+    @GetMapping("/loginAdm")
+    public String loginAdm(){ return "criancasAdm.html"; }
+
+
 }

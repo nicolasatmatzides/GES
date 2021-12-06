@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,39 +20,35 @@
             
             <span>Cadastrar</span>
 
-            <form action="" method="post" id="form-register">
+            <form th:action="@{/cadastrar}" method="post">
 
                 <div class="form-label">
-                    <input type="text" class="form-control" placeholder="Nome" required>
+                    <input type="text" class="form-control" name="Name" placeholder="Nome" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="email" class="form-control" placeholder="Email" required>
+                    <input type="text" class="form-control" name="email" placeholder="Email" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="text" class="form-control" placeholder="Endereço" required>
+                    <input type="text" class="form-control" name="Address" placeholder="Endereço" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="text" class="form-control" placeholder="Renda" required>
+                    <input type="password" id="password1" class="form-control" name="senha" placeholder="Senha" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="password" id="password1" class="form-control" placeholder="Senha" required> 
+                    <input type="password" id="password2" class="form-control" name="confirmacaoSenha" placeholder="Confirme a senha" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="password" id="password2" class="form-control" placeholder="Confirme a senha" required>
-                </div>
-
-                <div class="form-label">
-                    <input type="submit" class="form-control" value="Entrar">
+                    <input type="submit" class="form-control" value="Cadastrar">
                 </div>
 
             </form>
 
-            <a href="./login.html">Já possui conta? <b>Faça login</b></a>
+            <a href="/">Já possui conta? <b>Faça login</b></a>
 
         </div>
 
