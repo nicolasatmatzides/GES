@@ -17,6 +17,11 @@ public class LoginController {
         return "home.html";
     }
 
+    @PostMapping("/home")
+    public String enviar() {
+        return "home.html";
+    }
+
     @GetMapping("/")
     public String login() {
         return "login.html";

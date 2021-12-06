@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,7 @@
                         <a class="nav-link" href="howtoadopt.html">Como adotar</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="./em-construcao">Casos de sucesso</a>
+                        <a class="nav-link" href="casosSucesso.html">Casos de sucesso</a>
                     </li>
                     <li class="nav-item dropdown mx-2">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -205,7 +205,7 @@
 
             <h4>Contato</h4>
 
-            <form action="" method="post" id="form-contact">
+            <form th:action="/home" method="post" id="form-contact">
 
                 <div class="mb-3">
                     <label for="form-message" class="form-label">Mensagem</label>
