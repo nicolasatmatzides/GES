@@ -75,29 +75,14 @@
 
         <div class="cards">
 
-            <div class="card" style="width: 18rem;">
-                <img src="./assets/images/prof-jussara.png" class="card-img-top" alt="Foto de Jussara">
-                <div class="card-body">
-                    <h5 class="card-title">Jussara Marins Freitas</h5>
-                    <p class="card-text">Assistente Social</p>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="./assets/images/prof-samara.png" class="card-img-top" alt="Foto de Samara">
-                <div class="card-body">
-                    <h5 class="card-title">Samara Dias Pires</h5>
-                    <p class="card-text">Assistente Social</p>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <img src="./assets/images/prof-romeu.png" class="card-img-top" alt="Foto de Romeu">
-                <div class="card-body">
-                    <h5 class="card-title">Romeu Alves Rossi</h5>
-                    <p class="card-text">Assistente Social</p>
-                </div>
-            </div>
+            <ul>
+                <th:block th:each="c : ${criancas}">
+                    <div class="card" style="width: 18rem;">
+                        <h5 th:text="${'Nome: ' + c.Name} " class="card-title"></h5>
+                        <p th:text="${'Idade: '  + c.Age}" class="card-text"></p>
+                    </div>
+                </th:block>
+            </ul>
 
         </div>
 
