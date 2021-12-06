@@ -28,7 +28,7 @@ public class AdminController {
             return "/cadastrar";
         }
         usuarioService.cadastrarUsuarioAdm(dto);
-        return "redirect:/";
+        return "redirect:/home";
     }
 
     @GetMapping("/loginAdm")

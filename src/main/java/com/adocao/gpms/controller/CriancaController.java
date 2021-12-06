@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/crianca")
 public class CriancaController {
 
     @Autowired
@@ -26,13 +25,13 @@ public class CriancaController {
     @Autowired
     private CriancaService criancaService;
 
-    @GetMapping("/cadastra")
+    @GetMapping("crianca/cadastra")
     public String cadastraCrianca(){return "crianca/cadastrar";}
 
 
 
     //mostra pets disponíveis para adoção
-    @GetMapping("/disponiveis")
+    @GetMapping("crianca/disponiveis")
     public String listaCriancasDisponiveis(Model model){
 
         List<Crianca> criancaList = criancaService.listaCriancaDisponiveis();
@@ -44,7 +43,7 @@ public class CriancaController {
 
     //cadastrar nova criança no banco
 
-    @GetMapping("/listarSucesso")
+    @GetMapping("crianca/listarSucesso")
     public String listarSucesso(Model model){
         List<Crianca> criancaList = criancaService.listarCriancaSucesso();
 
@@ -53,7 +52,7 @@ public class CriancaController {
         return "crianca/sucesso";
     }
 
-    @PostMapping
+    @PostMapping("crianca/cadastra")
     public String cadastraCrianca(Model model,
                                   @RequestParam(name = "nome") Optional<String> nome,
                                   @RequestParam(name = "idade") Optional<String> idade,
