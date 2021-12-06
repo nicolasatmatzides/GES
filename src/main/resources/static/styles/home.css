@@ -30,24 +30,40 @@ body {
     border: none;
 }
 
-#form-search {
-    width: 100%;
-    height: 100%;
+.input-container {
     display: flex;
-    align-items: center;
+    flex-direction: row;
 }
 
-#input-search {
-    border: none;
-    border-radius: 5px;
+.input-container * {
+    margin-right: 5px;
+}
+
+#form-search {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#form-search button {
+    background-color: #FF6243;
+    color: #FFFFFF;
+}
+
+#form-search div input, #form-search select {
     background-color: #F2F2F5;
-    padding: 5px 10px;
-    width: 164px;
-    color: #333333;
+    border: none;
 }
 
-#input-search:focus {
+#form-search div div input {
+    background-color: #CCCCCC;
+    border: #FF6243;
+}
+
+#form-search div input:focus, div input:focus, #form-search select:focus {
     outline: none !important;
+    box-shadow: none;
     border: 2px solid #FF6243;
 }
 
