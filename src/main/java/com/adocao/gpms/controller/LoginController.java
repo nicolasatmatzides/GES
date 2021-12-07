@@ -17,11 +17,6 @@ public class LoginController {
         return "home.html";
     }
 
-    @PostMapping("/home")
-    public String enviar() {
-        return "home.html";
-    }
-
     @GetMapping("/")
     public String login() {
         return "login.html";
@@ -45,6 +40,6 @@ public class LoginController {
             model.addAttribute("errorMessage", "Email ou senha incorretos.");
             return "login.html";
         }
-        return "home.html";
+        return "/home";
     }
 }

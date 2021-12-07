@@ -19,19 +19,15 @@ public class DuvidaController {
     @Autowired
     private DuvidaService duvidaService;
 
-    @GetMapping("/nova")
+    @GetMapping("/redirectDuvida")
     public String cadastraDuvida() {
-        return "duvida/nova";
+        return "/home";
     }
 
-
-    @PostMapping("/nova")
+    @PostMapping("/duvidaNova")
     public String cadastraDuvida(DuvidaDTO duvida) {
-
-
         duvidaService.cadastrarDuvida(duvida);
-
-        return "redirect:/duvida/nova";
+        return "/redirectDuvida";
     }
 
     @GetMapping("/duvidaLista")
