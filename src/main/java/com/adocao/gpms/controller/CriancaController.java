@@ -8,15 +8,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 public class CriancaController {
 
     @Autowired
@@ -50,6 +47,14 @@ public class CriancaController {
         model.addAttribute("criancas", criancaList);
 
         return "crianca/sucesso";
+    }
+
+    @GetMapping("/success-case")
+    public List alomundo(Model model) {
+
+        List<Crianca> criancaList = criancaService.listarCriancaSucesso();
+
+        return criancaList;
     }
 
     @PostMapping("crianca/cadastra")
