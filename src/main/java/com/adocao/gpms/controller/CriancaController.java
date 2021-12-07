@@ -6,6 +6,7 @@ import com.adocao.gpms.security.UsuarioLogadoSession;
 import com.adocao.gpms.service.CriancaService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,13 +44,11 @@ public class CriancaController {
 
     //cadastrar nova criança no banco
 
-    @GetMapping("crianca/listarSucesso")
+    @GetMapping("/listarCasosSucesso")
     public String listarSucesso(Model model){
         List<Crianca> criancaList = criancaService.listarCriancaSucesso();
-
         model.addAttribute("criancas", criancaList);
-
-        return "crianca/sucesso";
+        return "listarCasosSucesso.html";
     }
 
     @PostMapping("crianca/cadastra")
