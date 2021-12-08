@@ -49,13 +49,11 @@ public class CriancaController {
     }
 
     @GetMapping("/success-case")
-    public List alomundo(Model model) {
+    public List<Crianca> listarCriancasAdotadas(){
 
-        List<Crianca> criancaList = criancaService.listarCriancaSucesso();
-
-        return criancaList;
+        return criancaService.listarCriancaSucesso();
     }
-
+/*
     @PostMapping("crianca/cadastra")
     public String cadastraCrianca(Model model,
                                   @RequestParam(name = "nome") Optional<String> nome,
@@ -72,5 +70,22 @@ public class CriancaController {
 
         return criancaService.cadastraCrianca(crianca,model);
     }
+*/
 
+    @PostMapping("crianca/cadastra")
+    public String cadastraCrianca(Model model,
+                                  @RequestParam(name = "nome") Optional<String> nome,
+                                  @RequestParam(name = "idade") Optional<String> idade,
+                                  @RequestParam(name = "genero") Optional<String> genero,
+                                  @RequestParam(name = "endereco") Optional<String> endereco,
+                                  @RequestParam(name = "rg") Optional<String> rg){
+        CriancaDTO crianca = new CriancaDTO();
+        nome.ifPresent(crianca::setName);
+        idade.ifPresent(crianca::setAge);
+        genero.ifPresent(crianca::setGender);
+        endereco.ifPresent(crianca::setAddress);
+        rg.ifPresent(crianca::setCivilId);
+
+        return criancaService.cadastraCrianca(crianca,model);
+    }
 }
