@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import com.google.gson.Gson;
 
 import java.util.List;
 import java.util.Optional;
@@ -49,15 +50,21 @@ public class CriancaController {
     }
 
     @GetMapping("/success-case")
-    public List<Crianca> listarCriancasAdotadas(){
+    public String listarCriancasAdotadas(Model model) {
 
-        return criancaService.listarCriancaSucesso();
+        List<Crianca> criancaList = criancaService.listarCriancaSucesso();
+
+        String json = new Gson().toJson(criancaList);
+
+        System.out.println(json);
+
+        return json;
     }
 
 /*    @PostMapping("crianca/cadastra")
     public String cadastraCrianca(Model model,
-                                  @RequestParam(name = "nome") Optional<String> nome,
-                                  @RequestParam(name = "idade") Optional<String> idade,
+                                 @RequestParam(name = "nome") Optional<String> nome,
+                                   @RequestParam(name = "idade") Optional<String> idade,
                                   @RequestParam(name = "genero") Optional<String> genero,
                                   @RequestParam(name = "endereco") Optional<String> endereco,
                                   @RequestParam(name = "rg") Optional<String> rg) throws JsonProcessingException{
