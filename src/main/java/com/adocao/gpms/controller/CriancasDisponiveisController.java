@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class SuccessCaseController {
+public class CriancasDisponiveisController {
     @Autowired
     private UsuarioLogadoSession usuarioLogadoSession;
 
     @Autowired
     private CriancaService criancaService;
 
-    @GetMapping("/casos-de-sucesso")
-    public String success(){
-        return "success.html";
+    @GetMapping("/filterCriancas")
+    public String criancasDisponiveis(){
+        return "criancasDisponiveis.html";
     }
 
 }
