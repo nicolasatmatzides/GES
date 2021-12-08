@@ -292,11 +292,6 @@
             axios.post('/duvidaNova', text).then(response => console.log("Funcionou"));
         }
 
-        function redirectCriancasDisponiveis(){
-            axios.get('/filterCriancas').then( response => {
-                console.log("Encontrou o controller");
-            }).catch(error => console.log(error));
-        }
     </script>
 
 </body>

@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import com.google.gson.Gson;
 
 import java.util.List;
 import java.util.Optional;
@@ -45,17 +46,21 @@ public class CriancaController {
     }
 
     @GetMapping("/success-case")
-    public List alomundo(Model model) {
+    public String listarCriancasAdotadas(Model model) {
 
         List<Crianca> criancaList = criancaService.listarCriancaSucesso();
 
-        return criancaList;
-    }
+        String json = new Gson().toJson(criancaList);
 
+        System.out.println(json);
+
+        return json;
+    }
+/*
     @PostMapping("crianca/cadastra")
     public String cadastraCrianca(Model model,
-                                  @RequestParam(name = "nome") Optional<String> nome,
-                                  @RequestParam(name = "idade") Optional<String> idade,
+                                 @RequestParam(name = "nome") Optional<String> nome,
+                                   @RequestParam(name = "idade") Optional<String> idade,
                                   @RequestParam(name = "genero") Optional<String> genero,
                                   @RequestParam(name = "endereco") Optional<String> endereco,
                                   @RequestParam(name = "rg") Optional<String> rg) throws JsonProcessingException{
@@ -68,5 +73,22 @@ public class CriancaController {
 
         return criancaService.cadastraCrianca(crianca,model);
     }
+*/
 
+    @PostMapping("crianca/cadastra")
+    public String cadastraCrianca(Model model,
+                                  @RequestParam(name = "nome") Optional<String> nome,
+                                  @RequestParam(name = "idade") Optional<String> idade,
+                                  @RequestParam(name = "genero") Optional<String> genero,
+                                  @RequestParam(name = "endereco") Optional<String> endereco,
+                                  @RequestParam(name = "rg") Optional<String> rg){
+        CriancaDTO crianca = new CriancaDTO();
+        nome.ifPresent(crianca::setName);
+        idade.ifPresent(crianca::setAge);
+        genero.ifPresent(crianca::setGender);
+        endereco.ifPresent(crianca::setAddress);
+        rg.ifPresent(crianca::setCivilId);
+
+        return criancaService.cadastraCrianca(crianca,model);
+    }
 }
