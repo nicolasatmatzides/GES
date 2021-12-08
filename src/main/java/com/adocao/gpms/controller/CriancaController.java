@@ -6,6 +6,7 @@ import com.adocao.gpms.security.UsuarioLogadoSession;
 import com.adocao.gpms.service.CriancaService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -41,17 +42,15 @@ public class CriancaController {
 
     //cadastrar nova criança no banco
 
-    @GetMapping("crianca/listarSucesso")
+    @GetMapping("/listarCasosSucesso")
     public String listarSucesso(Model model){
         List<Crianca> criancaList = criancaService.listarCriancaSucesso();
-
         model.addAttribute("criancas", criancaList);
-
-        return "crianca/sucesso";
+        return "listarCasosSucesso.html";
     }
 
     @GetMapping("/success-case")
-    public String alomundo(Model model) {
+    public String listarCriancasAdotadas(Model model) {
 
         List<Crianca> criancaList = criancaService.listarCriancaSucesso();
 
@@ -61,7 +60,7 @@ public class CriancaController {
 
         return json;
     }
-
+/*
     @PostMapping("crianca/cadastra")
     public String cadastraCrianca(Model model,
                                  @RequestParam(name = "nome") Optional<String> nome,
@@ -78,5 +77,22 @@ public class CriancaController {
 
         return criancaService.cadastraCrianca(crianca,model);
     }
+*/
 
+    @PostMapping("crianca/cadastra")
+    public String cadastraCrianca(Model model,
+                                  @RequestParam(name = "nome") Optional<String> nome,
+                                  @RequestParam(name = "idade") Optional<String> idade,
+                                  @RequestParam(name = "genero") Optional<String> genero,
+                                  @RequestParam(name = "endereco") Optional<String> endereco,
+                                  @RequestParam(name = "rg") Optional<String> rg){
+        CriancaDTO crianca = new CriancaDTO();
+        nome.ifPresent(crianca::setName);
+        idade.ifPresent(crianca::setAge);
+        genero.ifPresent(crianca::setGender);
+        endereco.ifPresent(crianca::setAddress);
+        rg.ifPresent(crianca::setCivilId);
+
+        return criancaService.cadastraCrianca(crianca,model);
+    }
 }
