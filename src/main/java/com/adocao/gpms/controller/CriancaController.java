@@ -53,8 +53,8 @@ public class CriancaController {
 
         return criancaService.listarCriancaSucesso();
     }
-/*
-    @PostMapping("crianca/cadastra")
+
+/*    @PostMapping("crianca/cadastra")
     public String cadastraCrianca(Model model,
                                   @RequestParam(name = "nome") Optional<String> nome,
                                   @RequestParam(name = "idade") Optional<String> idade,
