@@ -29,14 +29,10 @@ public class CriancaController {
 
 
     //mostra pets disponíveis para adoção
-    @GetMapping("crianca/disponiveis")
-    public String listaCriancasDisponiveis(Model model){
-
+    @GetMapping("/criancasDisponiveis")
+    public List listaCriancasDisponiveis(){
         List<Crianca> criancaList = criancaService.listaCriancaDisponiveis();
-
-        model.addAttribute("criancas", criancaList);
-
-        return "crianca/lista-crianca";
+        return criancaList;
     }
 
     //cadastrar nova criança no banco

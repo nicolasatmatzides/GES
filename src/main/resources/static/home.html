@@ -72,7 +72,7 @@
         </div>
         <div class="offcanvas-body">
 
-            <form action="" method="post" id="form-search">
+            <form id="form-search" action="/filterCriancas" method="get">
             
                 <h6>Sexo</h6>
 
@@ -292,6 +292,11 @@
             axios.post('/duvidaNova', text).then(response => console.log("Funcionou"));
         }
 
+        function redirectCriancasDisponiveis(){
+            axios.get('/filterCriancas').then( response => {
+                console.log("Encontrou o controller");
+            }).catch(error => console.log(error));
+        }
     </script>
 
 </body>
