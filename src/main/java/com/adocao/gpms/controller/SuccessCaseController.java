@@ -14,7 +14,7 @@ public class SuccessCaseController {
     @Autowired
     private CriancaService criancaService;
 
-    @GetMapping("/success")
+    @GetMapping("/casos-de-sucesso")
     public String success(){
         return "success.html";
     }

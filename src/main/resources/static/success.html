@@ -24,13 +24,13 @@
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto d-flex mb-2 mb-lg-0">
                     <li class="nav-item mx-2">
-                        <a class="nav-link active" href="home.html">Início</a>
+                        <a class="nav-link active" href="/home">Início</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="howtoadopt.html">Como adotar</a>
+                        <a class="nav-link" href="/como-adotar">Como adotar</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="./em-construcao">Casos de sucesso</a>
+                        <a class="nav-link" href="/casos-de-sucesso">Casos de sucesso</a>
                     </li>
                     <li class="nav-item dropdown mx-2">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -190,6 +190,15 @@
 
     <div class="container" id="container">
 
+        <section>
+
+            <h4 class="text-center">Casos de sucesso</h4>
+
+            <div class="cards" id="cards">
+
+            </div>
+
+        </section>
 
     </div>
 
@@ -213,20 +222,25 @@
 
               data.forEach(element => {
 
-                let div = document.createElement('div');
-                let pName = document.createElement('p');
+                let divCard = document.createElement('div');
+                let divBody = document.createElement('div');
+
+                let pName = document.createElement('h5');
                 let pAge = document.createElement('p');
-                let pGender = document.createElement('p');
+
+                divCard.className = "card";
+                pName.className = "card-title";
+                pAge.className = "card-text";
 
                 pName.innerHTML = element.name;
-                pAge.innerHTML = element.age;
-                pGender.innerHTML = element.gender;
+                pAge.innerHTML = element.age + " anos";
 
-                div.appendChild(pName);
-                div.appendChild(pAge);
-                div.appendChild(pGender);
+                divBody.appendChild(pName);
+                divBody.appendChild(pAge);
 
-                document.getElementById('container').appendChild(div);
+                divCard.appendChild(divBody);
+
+                document.getElementById('cards').appendChild(divCard);
 
                });
 
