@@ -40,6 +40,6 @@ public class LoginController {
             model.addAttribute("errorMessage", "Email ou senha incorretos.");
             return "login.html";
         }
-        return "home.html";
+        return "/home";
     }
 }

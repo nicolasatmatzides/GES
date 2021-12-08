@@ -7,31 +7,25 @@ import com.adocao.gpms.service.DuvidaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class DuvidaController {
 
     @Autowired
     private DuvidaService duvidaService;
 
-    @GetMapping("/nova")
+    @GetMapping("/redirectDuvida")
     public String cadastraDuvida() {
-        return "duvida/nova";
+        return "/home";
     }
 
-
-    @PostMapping("/nova")
-    public String cadastraDuvida(DuvidaDTO duvida) {
-
-
-        duvidaService.cadastrarDuvida(duvida);
-
-        return "redirect:/duvida/nova";
+    @PostMapping("/duvidaNova")
+    public String cadastraDuvida(@RequestBody String text) {
+        duvidaService.cadastrarDuvida(text);
+        return "/home";
     }
 
     @GetMapping("/duvidaLista")

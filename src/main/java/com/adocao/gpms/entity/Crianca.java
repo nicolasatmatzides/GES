@@ -33,5 +33,5 @@ public class Crianca {
     private String CivilId;
 
     @Column
-    private AdocaoStatus adocaoStatus = AdocaoStatus.EMPTY;
+    private AdocaoStatus adocaoStatus;
 }
