@@ -58,6 +58,25 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 
     <script>
+
+         function salvarUsuario(){
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let address = document.getElementById('address').value;
+            let senha = document.getElementById('senha').value;
+
+            alert(name);
+
+            var usuario = new Usuario();
+            usuario.Name = name;
+            usuario.email = email.
+            usuario.Address = address;
+            usuario.password = senha;
+
+            var novoUsuario = new UsuarioDTO(usuario);
+
+            axios.post('/cadastrar', novoUsuario).then(response => console.log("Funcionou"));
+        }
         
         let alertDiv = $('#password-error');
 
@@ -80,8 +99,6 @@
 
             }
         });
-
-
     </script>
 </body>
 </html>
