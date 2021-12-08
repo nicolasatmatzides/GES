@@ -1,0 +1,116 @@
+body {
+    background-color: #F2F2F5;
+}
+
+.navbar {
+    -webkit-box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.1);
+    padding: 10px;
+    background-color: #FFFFFF;
+}
+
+.li-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#btn-profile {
+    background-color: transparent;
+    border: none;
+    width: 33px;
+}
+
+#navbarDropdown2 {
+    padding: 0;
+}
+
+#navbarDropdown2 li form button {
+    background-color: transparent;
+    border: none;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-container * {
+    margin-right: 5px;
+}
+
+#form-search {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#form-search button {
+    background-color: #FF6243;
+    color: #FFFFFF;
+}
+
+#form-search div input, #form-search select {
+    background-color: #F2F2F5;
+    border: none;
+}
+
+#form-search div div input {
+    background-color: #CCCCCC;
+    border: #FF6243;
+}
+
+#form-search div input:focus, div input:focus, #form-search select:focus {
+    outline: none !important;
+    box-shadow: none;
+    border: 2px solid #FF6243;
+}
+
+section h4 {
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #555555;
+    margin-bottom: 50px;
+}
+
+section .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 992px) {
+    section .cards .card {
+        margin-bottom: 20px;
+    }
+
+    section .cards .card:last-child {
+        margin: 0;
+    }
+}
+
+section .cards .card .card-body * {
+    margin: 10px;
+}
+
+section .cards .card {
+    width: 300px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+footer {
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0 15px 0;
+    margin-top: 50px;
+}
