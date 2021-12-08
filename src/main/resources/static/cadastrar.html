@@ -20,30 +20,30 @@
             
             <span>Cadastrar</span>
 
-            <form th:action="@{/cadastrar}" method="post">
+            <form>
 
                 <div class="form-label">
-                    <input type="text" class="form-control" name="Name" placeholder="Nome" required>
+                    <input type="text" class="form-control" id="name" name="Name" placeholder="Nome" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="text" class="form-control" name="email" placeholder="Email" required>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="text" class="form-control" name="Address" placeholder="Endereço" required>
+                    <input type="text" class="form-control" id="address" name="Address" placeholder="Endereço" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="password" id="password1" class="form-control" name="senha" placeholder="Senha" required>
+                    <input type="password" id="password1" class="form-control" id="senha" name="senha" placeholder="Senha" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="password" id="password2" class="form-control" name="confirmacaoSenha" placeholder="Confirme a senha" required>
+                    <input type="password" id="password2" class="form-control" id="confirmacaoSenha" name="confirmacaoSenha" placeholder="Confirme a senha" required>
                 </div>
 
                 <div class="form-label">
-                    <input type="submit" class="form-control" value="Cadastrar">
+                    <input type="submit" onclick="salvarUsuario()" class="form-control" value="Cadastrar">
                 </div>
 
             </form>
@@ -78,9 +78,25 @@
 
                 alert('Digite a mesma senha!', 'danger')
 
-            } 
-
+            }
         });
+
+        function salvarUsuario(){
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let address = document.getElementById('address').value;
+            let senha = document.getElementById('senha').value;
+            let confirmacaoSenha = document.getElementById('confirmacaoSenha').value;
+
+            data {
+                Name: name,
+                email: email,
+                Address: address,
+                password: senha,
+            }
+
+            axios.post('/cadastrar', text).then(response => console.log("Funcionou"));
+        }
 
     </script>
 </body>
