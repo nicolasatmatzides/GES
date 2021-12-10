@@ -40,7 +40,7 @@ body {
 }
 
 #form-search {
-    height: 100vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -67,12 +67,18 @@ body {
     border: 2px solid #FF6243;
 }
 
-section {
-    padding: 50px 0 0 0;
+.link-carousel {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
-section:first-child {
-    padding: 0;
+.link-carousel:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+section {
+    padding: 50px 0 0 0;
 }
 
 section h4 {
@@ -90,11 +96,6 @@ section .cards {
     flex-wrap: wrap;
 }
 
-section .cards .card {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
 @media (max-width: 992px) {
     section .cards .card {
         margin-bottom: 20px;
@@ -105,24 +106,19 @@ section .cards .card {
     }
 }
 
-section .cards .card .card-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-section .cards .card .card-body h5 {
-    font-size: 18px;
-    color: #555555;
-    text-align: center;
-}
-
 section .cards .card .card-body * {
     margin: 10px;
 }
 
-section .cards .card .card-body img {
-    width: 70px;
+section .cards .card .card-footer {
+    background-color: #FFFFFF;
+    border: none;
+    padding: 0 26px 26px 26px
+}
+
+section .cards .card .card-footer span {
+    font-size: 14px;
+    color: #555555;
 }
 
 section #form-contact {
