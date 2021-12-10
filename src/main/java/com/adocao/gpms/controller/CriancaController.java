@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 public class CriancaController {
 
     @Autowired
@@ -29,33 +29,34 @@ public class CriancaController {
 
 
 
-    //mostra pets disponíveis para adoção
-    @GetMapping("/criancasDisponiveis")
-    public List listaCriancasDisponiveis(){
+    @GetMapping("crianca/disponiveis")
+    public String listaCriancasDisponiveis(Model model){
+
         List<Crianca> criancaList = criancaService.listaCriancaDisponiveis();
         return criancaList;
     }
 
-    //cadastrar nova criança no banco
+    @GetMapping("/busca")
+    public String busca(Model model,
+                        @RequestParam(name = "idade") String idade,
+                        @RequestParam(name = "sexo") String genero) {
 
-    @GetMapping("/listarCasosSucesso")
-    public String listarSucesso(Model model){
+        List<Crianca> criancaList = criancaService.busca(idade, genero);
+
+        model.addAttribute("criancas", criancaList);
+
+        return "result";
+
+    }
+
+    @GetMapping("/casos-sucesso")
+    public String listarCasosSucessos(Model model){
         List<Crianca> criancaList = criancaService.listarCriancaSucesso();
         model.addAttribute("criancas", criancaList);
-        return "listarCasosSucesso.html";
+
+        return "success.html";
     }
 
-    @GetMapping("/success-case")
-    public String listarCriancasAdotadas(Model model) {
-
-        List<Crianca> criancaList = criancaService.listarCriancaSucesso();
-
-        String json = new Gson().toJson(criancaList);
-
-        System.out.println(json);
-
-        return json;
-    }
     @PostMapping("crianca/cadastra")
     public String cadastraCrianca(Model model,
                                   @RequestParam(name = "nome") Optional<String> nome,

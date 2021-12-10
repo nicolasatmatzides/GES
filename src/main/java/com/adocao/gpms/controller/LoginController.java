@@ -23,7 +23,7 @@ public class LoginController {
     }
 
     @GetMapping("/como-adotar")
-    public String comoAdotar() { return "howtoadopt.html"; }
+    public String comoAdotar() { return "howtoadopt"; }
 
     @GetMapping("/em-construcao")
     public String emContrucao() { return "build.html"; }
@@ -33,13 +33,4 @@ public class LoginController {
         return "adocao";
     }
 
-
-    @PostMapping("/login")
-    public String logar(UsuarioDTO dto, Model model) {
-        if (!dto.getSenha().equals(dto.getConfirmacaoSenha())) {
-            model.addAttribute("errorMessage", "Email ou senha incorretos.");
-            return "login.html";
-        }
-        return "/home";
-    }
 }

@@ -10,7 +10,7 @@ values(2, 'rua da adoção', 10,'20202021','FEMININO','Joana', 'COMPLETED');
 insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
 values(3, 'rua da adoção', 13,'80808416515','FEMININO','Raquel', 'COMPLETED');
 insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
-values(5, 'rua Z', 14,'15132150','Maculino','Rodrigo', 'EMPTY');
+values(5, 'rua Z', 14,'15132150','MASCULINO','Rodrigo', 'EMPTY');
 insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
 values(6, 'rua Y', 9,'218044984','FEMININO','Juliana', 'EMPTY');
 insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
