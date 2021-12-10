@@ -5,6 +5,7 @@ import com.adocao.gpms.model.AdocaoStatus;
 import com.adocao.gpms.model.CriancaDTO;
 import com.adocao.gpms.repository.CriancaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -28,6 +29,7 @@ public class CriancaService {
         model.addAttribute("crianca", crianca);
        return "cadastrar/crianca";
     }
+
     public List<Crianca> listaCriancaDisponiveis() {
         List<Crianca> criancaList = new ArrayList<>();
         try {
@@ -47,4 +49,18 @@ public class CriancaService {
         }
         return criancaList;
     }
+
+    public List<Crianca> busca(String age, String gender) {
+
+        List<Crianca> criancaList = new ArrayList<>();
+        try {
+            criancaList = criancaRepository.findAllByAgeAndGender(age, gender);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return criancaList;
+
+
+    }
+
 }

@@ -21,10 +21,10 @@ public class Crianca {
     private String Name;
 
     @Column
-    private String Age;
+    private String age;
 
     @Column
-    private String Gender;
+    private String gender;
 
     @Column
     private String Address;
