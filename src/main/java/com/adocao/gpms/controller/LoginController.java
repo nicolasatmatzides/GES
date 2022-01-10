@@ -14,16 +14,16 @@ public class LoginController {
 
     @GetMapping("/home")
     public String home() {
-        return "home.html";
+        return "user/home.html";
     }
 
     @GetMapping("/")
     public String login() {
-        return "login.html";
+        return "user/login.html";
     }
 
     @GetMapping("/como-adotar")
-    public String comoAdotar() { return "howtoadopt"; }
+    public String comoAdotar() { return "user/howtoadopt"; }
 
     @GetMapping("/em-construcao")
     public String emContrucao() { return "build.html"; }

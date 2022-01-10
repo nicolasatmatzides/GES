@@ -1,6 +1,7 @@
 package com.adocao.gpms.controller;
 
 
+import com.adocao.gpms.entity.Crianca;
 import com.adocao.gpms.entity.Duvida;
 import com.adocao.gpms.model.DuvidaDTO;
 import com.adocao.gpms.service.DuvidaService;
@@ -17,10 +18,8 @@ public class DuvidaController {
     @Autowired
     private DuvidaService duvidaService;
 
-    @GetMapping("/redirectDuvida")
-    public String cadastraDuvida() {
-        return "/home";
-    }
+    @GetMapping("/paginaDuvidas")
+    public String paginaDuvidas() { return "adm/mensagens.html"; }
 
     @PostMapping("/duvidaNova")
     public String cadastraDuvida(@RequestBody String text) {

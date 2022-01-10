@@ -23,7 +23,7 @@ public class UsuarioController {
 
     @GetMapping("/cadastrar")
     public String cadastrarUsuario() {
-        return "cadastrar.html";
+        return "user/cadastrar.html";
     }
 
     @PostMapping("/salvar")

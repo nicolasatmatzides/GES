@@ -32,7 +32,7 @@ public class AdminController {
     }
 
     @GetMapping("/loginAdm")
-    public String loginAdm(){ return "criancasAdm.html"; }
+    public String loginAdm(){ return "adm/criancasAdm.html"; }
 
 
 }

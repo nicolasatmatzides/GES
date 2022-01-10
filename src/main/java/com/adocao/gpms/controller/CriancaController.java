@@ -46,7 +46,7 @@ public class CriancaController {
 
         model.addAttribute("criancas", criancaList);
 
-        return "result";
+        return "user/result";
 
     }
 
@@ -55,7 +55,7 @@ public class CriancaController {
         List<Crianca> criancaList = criancaService.listarCriancaSucesso();
         model.addAttribute("criancas", criancaList);
 
-        return "success.html";
+        return "user/success.html";
     }
 
     @PostMapping("crianca/cadastra")
