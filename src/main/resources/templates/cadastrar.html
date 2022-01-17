@@ -20,10 +20,10 @@
             
             <span>Cadastrar</span>
 
-            <form>
+            <form th:action="salvar" method="post">
 
                 <div class="form-label">
-                    <input type="text" class="form-control" id="nome" name="Name" placeholder="Nome" required>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome" required>
                 </div>
 
                 <div class="form-label">
@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="form-label">
-                    <input type="text" class="form-control" id="endereco" name="Address" placeholder="Endereço" required>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Endereço" required>
                 </div>
 
                 <div class="form-label">
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="form-label">
-                    <input type="submit" onclick="salvarUsuario()" class="form-control" value="Cadastrar">
+                    <input type="submit" class="form-control" value="Cadastrar">
                 </div>
 
             </form>
@@ -81,30 +81,6 @@
             }
         });
 
-        function salvarUsuario(){
-            let nome = document.getElementById('nome').value;
-            let email = document.getElementById('email').value;
-            let endereco = document.getElementById('endereco').value;
-            let senha = document.getElementById('senha');
-            let confirmacaoSenha = document.getElementById('confirmacaoSenha');
-
-            console.log(nome);
-            console.log(email);
-            console.log(endereco);
-            console.log(senha.setAttribute("type", "text"));
-            console.log(confirmacaoSenha.setAttribute("type", "text"));
-            console.log("teste");
-
-            var infoUsuario = new Map();
-
-            infoUsuario.set("nome", nome);
-            infoUsuario.set("email", email);
-            infoUsuario.set("endereco", endereco);
-            infoUsuario.set("senha", senha.setAttribute("type", "text"));
-            infoUsuario.set("confirmacaoSenha", confirmacaoSenha.setAttribute("type", "text"));
-
-            axios.post('/cadastrar',  infoUsuario).then(response => console.log("Funcionou"));
-        }
     </script>
 </body>
 </html>

@@ -4,6 +4,7 @@ import com.adocao.gpms.entity.Usuario;
 import com.adocao.gpms.model.login.UsuarioDTO;
 import com.adocao.gpms.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -24,9 +25,12 @@ public class UsuarioService {
 
     public Usuario cadastrarUsuario(UsuarioDTO dto) {
 
+        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+        String senha = bcrypt.encode(dto.getSenha());
+
         Usuario usuario = new Usuario();
         usuario.setEmail(dto.getEmail());
-        usuario.setPassword(dto.getSenha());
+        usuario.setPassword(senha);
         usuario.setRole("ROLE_USER");
         usuario.setName(dto.getUsername());
         usuario.setAge(dto.getAge());
