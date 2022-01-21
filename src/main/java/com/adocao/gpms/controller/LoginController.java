@@ -28,6 +28,9 @@ public class LoginController {
     @GetMapping("/em-construcao")
     public String emContrucao() { return "build.html"; }
 
+    @GetMapping("/error")
+    public String error() { return "error.html"; }
+
     @GetMapping("/adote")
     public String adocao() {
         return "adocao";

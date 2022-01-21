@@ -54,7 +54,6 @@ public class CriancaController {
     public String listarCasosSucessos(Model model){
         List<Crianca> criancaList = criancaService.listarCriancaSucesso();
         model.addAttribute("criancas", criancaList);
-
         return "user/success.html";
     }
 
