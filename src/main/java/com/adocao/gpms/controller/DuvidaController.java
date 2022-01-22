@@ -21,12 +21,6 @@ public class DuvidaController {
     @GetMapping("/paginaDuvidas")
     public String paginaDuvidas() { return "adm/mensagens.html"; }
 
-    @PostMapping("/duvidaNova")
-    public String cadastraDuvida(@RequestBody String text) {
-        duvidaService.cadastrarDuvida(text);
-        return "/home";
-    }
-
     @PostMapping("/duvida")
     public String respondeDuvida(DuvidaDTO duvida) {
         duvidaService.respondeDuvida(duvida);

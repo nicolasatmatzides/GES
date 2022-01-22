@@ -257,10 +257,10 @@
 
         <section>
             <h4>Contato</h4>
-            <form th:action="duvidaNova" method="post">
+            <form th:action="contatoNovo" method="post">
                 <div class="mb-3">
                     <label for="form-message" class="form-label">Mensagem</label>
-                    <textarea class="form-control" id="form-message" rows="3"></textarea>
+                    <textarea class="form-control" id="form-message" name="text" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn">Enviar</button>
             </form>
@@ -281,12 +281,6 @@
             interval: 2000,
             wrap: true
         })
-
-        function salvarDuvida(){
-            let text = document.getElementById('form-message').value;
-            axios.post('/duvidaNova', text).then(response => console.log("Funcionou"));
-        }
-
     </script>
 
 </body>

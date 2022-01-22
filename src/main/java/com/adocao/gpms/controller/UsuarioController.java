@@ -4,6 +4,7 @@ package com.adocao.gpms.controller;
 import com.adocao.gpms.entity.Usuario;
 import com.adocao.gpms.model.CriancaDTO;
 import com.adocao.gpms.model.login.UsuarioDTO;
+import com.adocao.gpms.service.DuvidaService;
 import com.adocao.gpms.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,9 @@ import java.util.Optional;
 
 @Controller
 public class UsuarioController {
+
+    @Autowired
+    private DuvidaService duvidaService;
 
     @Autowired
     private UsuarioService usuarioService;
@@ -41,5 +45,16 @@ public class UsuarioController {
         return "redirect:/";
     }
 
+    @PostMapping("/contatoNovo")
+    public String cadastraContato(@RequestBody String text) {
+        duvidaService.cadastrarDuvida(text);
+        return "user/home.html";
+    }
+
+    @PostMapping("/duvidaNova")
+    public String cadastraDuvida(@RequestBody String text) {
+        duvidaService.cadastrarDuvida(text);
+        return "user/howtoadopt.html";
+    }
 
 }

@@ -43,7 +43,7 @@ section h4 {
     font-weight: normal;
     letter-spacing: 2px;
     color: #555555;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 }
 
 section .cards {
@@ -75,6 +75,7 @@ section .cards .card {
     justify-content: center;
     text-align: center;
     border: 1px solid #FF6243;
+    margin-bottom: 40px;
 }
 
 footer {
@@ -83,5 +84,4 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 20px 0 15px 0;
-    margin-top: 50px;
 }
