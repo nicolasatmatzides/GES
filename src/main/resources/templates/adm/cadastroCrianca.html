@@ -13,14 +13,11 @@
 <div id="background-register">
 
     <div id="container-register">
-
-        <div id="password-error"></div>
-
         <img th:src="@{img/logo.png}" alt="logo" class="d-inline-block align-top">
 
-        <span>Cadastrar</span>
+        <span>Cadastrar Criança</span>
 
-        <form action="" method="post" id="form-register">
+        <form action="crianca/cadastra" method="post" id="form-register">
 
             <div class="form-label">
                 <input type="text" class="form-control" placeholder="Nome" required>
@@ -47,13 +44,10 @@
             </div>
 
             <div class="form-label">
-                <input type="submit" class="form-control" value="Entrar">
+                <input type="submit" class="form-control" value="Cadastrar">
             </div>
 
         </form>
-
-        <a href="login.html" target="_blank">Já possui conta? <b>Faça login</b></a>
-
     </div>
 
 </div>

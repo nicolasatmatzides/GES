@@ -25,8 +25,8 @@ public class CriancaController {
     @Autowired
     private CriancaService criancaService;
 
-    @GetMapping("crianca/cadastra")
-    public String cadastraCrianca(){return "crianca/cadastrar";}
+    @GetMapping("crianca/paginaCadastrar")
+    public String cadastraCrianca(){return "adm/cadastroCrianca.html";}
 
 
 
