@@ -38,7 +38,7 @@ public class CriancaController {
     }
 
     @GetMapping("/busca")
-    public List busca(Model model,
+    public String busca(Model model,
                         @RequestParam(name = "idade") String idade,
                         @RequestParam(name = "sexo") String genero) {
 
@@ -46,7 +46,7 @@ public class CriancaController {
 
         model.addAttribute("criancas", criancaList);
 
-        return criancaList;
+        return "result";
 
     }
 
