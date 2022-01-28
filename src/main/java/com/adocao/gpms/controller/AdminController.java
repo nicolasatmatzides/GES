@@ -43,7 +43,7 @@ public class AdminController {
     public String listaDuvida(Model model){
         List<Duvida> duvidas = duvidaService.listaDuvida();
         model.addAttribute("listaDuvida", duvidas);
-        return "adm/mensagens.html";
+        return "mensagens.html";
     }
 
     @GetMapping("/loginAdm")
