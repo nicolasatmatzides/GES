@@ -15,6 +15,4 @@ public interface CriancaRepository extends JpaRepository<Crianca, Long> {
     List<Crianca> findAllByAdocaoStatus(AdocaoStatus status);
 
     List<Crianca> findAllByGenderAndAdocaoStatus(String gender, AdocaoStatus status);
-
-
 }
