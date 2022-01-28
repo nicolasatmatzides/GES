@@ -26,13 +26,13 @@ public class DuvidaService {
     @Autowired
     private UsuarioLogadoSession usuarioLogadoSession;
 
-    public void cadastrarDuvida(String text) {
+    public Duvida cadastrarDuvida(String text) {
         Duvida duvidaNova = new Duvida();
         Optional<Usuario> usuarioOn = usuarioRepository.findById(usuarioLogadoSession.getId());
         usuarioOn.orElseThrow(() -> new UsernameNotFoundException("Not found" + usuarioLogadoSession.getId()));
         duvidaNova.setDuvida(text);
         duvidaNova.setUsuario(usuarioOn.get());
-        duvidaRepository.save(duvidaNova);
+        return duvidaRepository.save(duvidaNova);
     }
 
     public List<Duvida> listaDuvida() {

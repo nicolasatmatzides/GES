@@ -1,12 +1,16 @@
 package com.adocao.gpms.service;
 
+import com.adocao.gpms.entity.Crianca;
 import com.adocao.gpms.entity.Usuario;
+import com.adocao.gpms.model.AdocaoStatus;
 import com.adocao.gpms.model.login.UsuarioDTO;
 import com.adocao.gpms.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -55,5 +59,15 @@ public class UsuarioService {
         usuario.setActive(true);
 
         return usuarioRepository.save(usuario);
+    }
+
+    public List<Usuario> listarUsuarios() {
+        List<Usuario> usuarioList = new ArrayList<>();
+        try {
+            usuarioList = usuarioRepository.findAll();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return usuarioList;
     }
 }

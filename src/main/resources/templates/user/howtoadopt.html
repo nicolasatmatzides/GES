@@ -201,23 +201,17 @@
     </section>
 
     <!-- doubt -->
-
     <section>
-
         <h4>Dúvidas</h4>
-
-        <form id="form-contact">
-
+        <form th:action="duvidaNova" method="post">
             <div class="mb-3">
                 <label for="form-message" class="form-label">Dúvida</label>
-                <textarea class="form-control" id="form-message" rows="3"></textarea>
+                <textarea class="form-control" id="form-message" name="text" rows="3"></textarea>
             </div>
-
-            <button type="submit" onclick="salvarDuvida()" class="btn">Enviar</button>
-
+            <button type="submit" class="btn">Enviar</button>
         </form>
-
     </section>
+</div>
 
 </div>
 

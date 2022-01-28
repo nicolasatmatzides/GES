@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand-lg mb-4 navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="./home">
+            <a class="navbar-brand" href="/home">
                 <img th:src="@{img/logo.png}" alt="logo" class="d-inline-block align-top">
             </a>
 
@@ -47,7 +47,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                             <li>
-                                <form method="GET" action="/em-construcao">
+                                <form method="GET" action="/loginAdm">
                                     <button class="btn" type="submit" id="btn-adm">Administração</button>
                                 </form>
                             </li>
@@ -256,20 +256,15 @@
         <!-- contact -->
 
         <section>
-
             <h4>Contato</h4>
-
-            <form id="form-contact">
+            <form th:action="contatoNovo" method="post">
                 <div class="mb-3">
                     <label for="form-message" class="form-label">Mensagem</label>
-                    <textarea class="form-control" id="form-message" rows="3"></textarea>
+                    <textarea class="form-control" id="form-message" name="text" rows="3"></textarea>
                 </div>
-
-                <button type="submit" onclick="salvarDuvida()" class="btn">Enviar</button>
+                <button type="submit" class="btn">Enviar</button>
             </form>
-
         </section>
-
     </div>
 
     <footer>
@@ -286,12 +281,6 @@
             interval: 2000,
             wrap: true
         })
-
-        function salvarDuvida(){
-            let text = document.getElementById('form-message').value;
-            axios.post('/duvidaNova', text).then(response => console.log("Funcionou"));
-        }
-
     </script>
 
 </body>

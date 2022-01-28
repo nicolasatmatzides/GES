@@ -1,9 +1,11 @@
 package com.adocao.gpms.controller;
 
 
+import com.adocao.gpms.entity.Crianca;
 import com.adocao.gpms.entity.Usuario;
 import com.adocao.gpms.model.CriancaDTO;
 import com.adocao.gpms.model.login.UsuarioDTO;
+import com.adocao.gpms.service.DuvidaService;
 import com.adocao.gpms.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -19,11 +22,14 @@ import java.util.Optional;
 public class UsuarioController {
 
     @Autowired
+    private DuvidaService duvidaService;
+
+    @Autowired
     private UsuarioService usuarioService;
 
     @GetMapping("/cadastrar")
     public String cadastrarUsuario() {
-        return "cadastrar.html";
+        return "user/cadastrar.html";
     }
 
     @PostMapping("/salvar")
@@ -41,5 +47,23 @@ public class UsuarioController {
         return "redirect:/";
     }
 
+    @GetMapping("/usuariosCadastrados")
+    public String listarUsuarios(Model model){
+        List<Usuario> usuarioList = usuarioService.listarUsuarios();
+        model.addAttribute("usuarios", usuarioList);
+        return "adm/usuariosCadastrados.html";
+    }
+
+    @PostMapping("/contatoNovo")
+    public String cadastraContato(@RequestBody String text) {
+        duvidaService.cadastrarDuvida(text);
+        return "user/home.html";
+    }
+
+    @PostMapping("/duvidaNova")
+    public String cadastraDuvida(@RequestBody String text) {
+        duvidaService.cadastrarDuvida(text);
+        return "user/howtoadopt.html";
+    }
 
 }
