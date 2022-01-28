@@ -9,13 +9,15 @@ public class CriancaDTO {
 
     private String Name;
 
-    private String Age;
+    private String NomeCompletoMae;
 
-    private String Gender;
+    private String NomeCompletoPai;
+
+    private String CPF;
 
     private String Address;
 
-    private String CivilId;
+    private String DataNascimento;
 
 
 }

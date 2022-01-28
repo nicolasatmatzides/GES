@@ -1,6 +1,7 @@
 package com.adocao.gpms.controller;
 
 
+import com.adocao.gpms.entity.Crianca;
 import com.adocao.gpms.entity.Usuario;
 import com.adocao.gpms.model.CriancaDTO;
 import com.adocao.gpms.model.login.UsuarioDTO;
@@ -13,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -43,6 +45,13 @@ public class UsuarioController {
         senha.ifPresent(usuario::setSenha);
         usuarioService.cadastrarUsuario(usuario);
         return "redirect:/";
+    }
+
+    @GetMapping("/usuariosCadastrados")
+    public String listarUsuarios(Model model){
+        List<Usuario> usuarioList = usuarioService.listarUsuarios();
+        model.addAttribute("usuarios", usuarioList);
+        return "adm/usuariosCadastrados.html";
     }
 
     @PostMapping("/contatoNovo")

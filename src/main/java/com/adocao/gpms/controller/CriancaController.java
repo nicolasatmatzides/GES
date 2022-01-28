@@ -57,20 +57,20 @@ public class CriancaController {
         return "user/success.html";
     }
 
-    @PostMapping("crianca/cadastra")
+    @PostMapping("cadastroCrianca")
     public String cadastraCrianca(Model model,
-                                  @RequestParam(name = "nome") Optional<String> nome,
-                                  @RequestParam(name = "idade") Optional<String> idade,
-                                  @RequestParam(name = "genero") Optional<String> genero,
+                                  @RequestParam(name = "nomeCompleto") Optional<String> nome,
+                                  @RequestParam(name = "dataNascimento") Optional<String> dataNascimento,
+                                  @RequestParam(name = "cpf") Optional<String> cpf,
                                   @RequestParam(name = "endereco") Optional<String> endereco,
-                                  @RequestParam(name = "rg") Optional<String> rg){
+                                  @RequestParam(name = "nomeCompletoMae") Optional<String> nomeCompletoMae,
+                                  @RequestParam(name = "nomeCompletoPai") Optional<String> nomeCompletoPai){
         CriancaDTO crianca = new CriancaDTO();
-        nome.ifPresent(crianca::setName);
-        idade.ifPresent(crianca::setAge);
-        genero.ifPresent(crianca::setGender);
-        endereco.ifPresent(crianca::setAddress);
-        rg.ifPresent(crianca::setCivilId);
-
+//        nome.ifPresent(crianca::setName);
+//        idade.ifPresent(crianca::setAge);
+//        genero.ifPresent(crianca::setGender);
+//        endereco.ifPresent(crianca::setAddress);
+//        rg.ifPresent(crianca::setCivilId);
         return criancaService.cadastraCrianca(crianca,model);
     }
 }
