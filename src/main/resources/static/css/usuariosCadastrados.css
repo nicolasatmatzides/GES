@@ -46,6 +46,11 @@ section h4 {
     margin-bottom: 70px;
 }
 
+section button{
+    background: #FF6243;
+    color: white;
+}
+
 table{
     margin: 0 auto;
     padding-bottom: 60px;
