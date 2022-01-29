@@ -1,7 +1,7 @@
 HELP.md
 
 # Não enviar a parte de Testes para a main
-/src/test/
+/src/test/*
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
