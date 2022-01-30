@@ -13,7 +13,7 @@
 
 <nav class="navbar navbar-expand-lg mb-4 navbar-light">
     <div class="container">
-        <a class="navbar-brand" href="./home">
+        <a class="navbar-brand" href="home.html">
             <img th:src="@{img/logo.png}" alt="logo" class="d-inline-block align-top">
         </a>
 
@@ -24,13 +24,13 @@
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav ms-auto d-flex mb-2 mb-lg-0">
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="/home">Início</a>
+                    <a class="nav-link" href="home.html">Início</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="/como-adotar">Como adotar</a>
+                    <a class="nav-link" href="howtoadopt.html">Como adotar</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="/casos-sucesso">Casos de sucesso</a>
+                    <a class="nav-link" href="success.html">Casos de sucesso</a>
                 </li>
                 <li class="nav-item dropdown mx-2">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,7 +38,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Adote uma criança</a></li>
-                        <li><a class="dropdown-item" href="./em-construcao">Minhas adoções</a></li>
+                        <li><a class="dropdown-item" href="../build.html">Minhas adoções</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown mx-2 li-profile">
@@ -129,22 +129,15 @@
 
         <div class="cards" id="cards">
 
-            <th:block th:each="crianca : ${criancas}">
-
-                <div class="card">
-
-                    <div class="card-body">
-
-                        <h5 class="card-title" th:text="${crianca.name}"></h5>
+            <div class="card" th:each="crianca : ${criancas}">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${crianca.name}"></h5>
 
                         <p class="card-text" th:text="${crianca.age}"></p>
-
-                    </div>
-
                 </div>
 
-            </th:block>
 
+            </div>
         </div>
 
     </section>
