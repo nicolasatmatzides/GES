@@ -33,8 +33,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/salvar")
-    public String cadastraUsuario(Model model,
-                                  @RequestParam(name = "name") Optional<String> name,
+    public String cadastraUsuario(@RequestParam(name = "name") Optional<String> name,
                                   @RequestParam(name = "email") Optional<String> email,
                                   @RequestParam(name = "address") Optional<String> address,
                                   @RequestParam(name = "senha") Optional<String> senha){
@@ -43,7 +42,7 @@ public class UsuarioController {
         email.ifPresent(usuario::setEmail);
         address.ifPresent(usuario::setAddress);
         senha.ifPresent(usuario::setSenha);
-        usuarioService.cadastrarUsuario(usuario);
+        usuarioService.cadastrarUsuario(usuario, "ROLE_USER");
         return "redirect:/";
     }
 
