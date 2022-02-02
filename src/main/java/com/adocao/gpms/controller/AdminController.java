@@ -8,12 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class AdminController {
@@ -26,17 +24,23 @@ public class AdminController {
 
     @GetMapping("/cadastrarAdm")
     public String cadastrarUsuarioAdm() {
-        return "/cadastrar";
+        return "adm/cadastroAdm.html";
     }
 
-    @PostMapping("/cadastrarAdm")
-    public String cadastrarUsuarioAdm(UsuarioDTO dto, Model model) {
-        if (!dto.getSenha().equals(dto.getConfirmacaoSenha())) {
-            model.addAttribute("errorMessage", "Senha e confirmação de senha estão diferentes");
-            return "/cadastrar";
-        }
-        usuarioService.cadastrarUsuarioAdm(dto);
-        return "redirect:/home";
+    @PostMapping("/novoAdm")
+    public String cadastrarAdm(@RequestParam(name = "nomeCompleto") Optional<String> name,
+                                      @RequestParam(name = "email") Optional<String> email,
+                                      @RequestParam(name = "cpf") Optional<String> cpf,
+                                      @RequestParam(name = "endereco") Optional<String> endereco,
+                                      @RequestParam(name = "senha") Optional<String> senha){
+        UsuarioDTO usuario = new UsuarioDTO();
+        name.ifPresent(usuario::setName);
+        email.ifPresent(usuario::setEmail);
+        cpf.ifPresent(usuario::setCpf);
+        endereco.ifPresent(usuario::setAddress);
+        senha.ifPresent(usuario::setSenha);
+        usuarioService.cadastrarUsuario(usuario, "ROLE_ADMIN");
+        return "redirect:/usuariosCadastrados";
     }
 
     @GetMapping("/mensagensLista")

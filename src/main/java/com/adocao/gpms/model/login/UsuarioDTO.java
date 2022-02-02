@@ -88,4 +88,5 @@ public class UsuarioDTO implements UserDetails {
     public boolean isEnabled() {
         return active;
     }
+
 }
