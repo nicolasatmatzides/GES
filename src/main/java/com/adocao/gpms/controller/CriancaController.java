@@ -28,13 +28,9 @@ public class CriancaController {
     @GetMapping("crianca/paginaCadastrar")
     public String cadastraCrianca(){return "adm/cadastroCrianca.html";}
 
-
-
-    @GetMapping("crianca/disponiveis")
-    public List listaCriancasDisponiveis(Model model){
-
-        List<Crianca> criancaList = criancaService.listaCriancaDisponiveis();
-        return criancaList;
+    @GetMapping("crianca/excluir")
+    public String excluirCrianca(){
+        return "redirect:/loginAdm";
     }
 
     @GetMapping("/busca")

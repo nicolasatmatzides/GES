@@ -1,7 +1,9 @@
 package com.adocao.gpms.controller;
 
+import com.adocao.gpms.entity.Crianca;
 import com.adocao.gpms.entity.Duvida;
 import com.adocao.gpms.model.login.UsuarioDTO;
+import com.adocao.gpms.service.CriancaService;
 import com.adocao.gpms.service.DuvidaService;
 import com.adocao.gpms.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class AdminController {
 
     @Autowired
     private DuvidaService duvidaService;
+
+    @Autowired
+    private CriancaService criancaService;
 
     @GetMapping("/cadastrarAdm")
     public String cadastrarUsuarioAdm() {
@@ -51,5 +56,9 @@ public class AdminController {
     }
 
     @GetMapping("/loginAdm")
-    public String loginAdm(){ return "adm/criancasAdm.html"; }
+    public String loginAdm(Model model){
+        List<Crianca> criancaList = criancaService.listaCriancaDisponiveis();
+        model.addAttribute("criancasDisponiveis", criancaList);
+        return "adm/criancasAdm.html";
+    }
 }
