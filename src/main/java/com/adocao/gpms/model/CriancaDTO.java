@@ -9,6 +9,10 @@ public class CriancaDTO {
 
     private String Name;
 
+    private String age;
+
+    private String gender;
+
     private String NomeCompletoMae;
 
     private String NomeCompletoPai;

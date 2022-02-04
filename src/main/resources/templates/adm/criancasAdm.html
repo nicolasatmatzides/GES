@@ -72,7 +72,9 @@
                     <div class="card-body">
                         <h5 class="card-title" th:text="${crianca.Name}"></h5>
                         <p class="card-text" th:text="${crianca.age}"></p>
-                        <button class="editar" method="GET" action="crianca/editar">Editar</button>
+                        <form method="GET" action="crianca/editar">
+                            <button class="editar">Editar</button>
+                        </form>
                         <form method="GET" action="crianca/excluir">
                             <button class="excluir">Excluir</button>
                         </form>

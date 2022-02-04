@@ -20,8 +20,8 @@ public class CriancaService {
     public String cadastraCrianca(CriancaDTO criancaDTO, Model model){
         Crianca crianca = new Crianca();
         crianca.setName(criancaDTO.getName());
-//        crianca.setAge(criancaDTO.getAge());
-//        crianca.setGender(criancaDTO.getGender());
+        crianca.setAge(criancaDTO.getAge());
+        crianca.setGender(criancaDTO.getGender());
         crianca.setAdocaoStatus(AdocaoStatus.EMPTY);
         crianca.setAddress(criancaDTO.getAddress());
         crianca.setCivilId(crianca.getCivilId());

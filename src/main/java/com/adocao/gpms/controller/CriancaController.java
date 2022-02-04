@@ -33,6 +33,11 @@ public class CriancaController {
         return "redirect:/loginAdm";
     }
 
+    @GetMapping("crianca/editar")
+    public String editarCrianca(){
+        return "redirect:/loginAdm";
+    }
+
     @GetMapping("/busca")
     public String busca(Model model,
                         @RequestParam(name = "idade") String idade,
@@ -54,21 +59,23 @@ public class CriancaController {
     }
 
     @PostMapping("cadastroCrianca")
-    public String cadastraCrianca(@RequestParam(name = "nomeCompleto") Optional<String> nome,
-                                  @RequestParam(name = "dataNascimento") Optional<String> dataNascimento,
+    public String cadastraCrianca(Model model,
+                                  @RequestParam(name = "nomeCompleto") Optional<String> nome,
+                                  @RequestParam(name = "idade") Optional<String> idade,
                                   @RequestParam(name = "genero") Optional<String> genero,
                                   @RequestParam(name = "cpf") Optional<String> cpf,
                                   @RequestParam(name = "endereco") Optional<String> endereco,
                                   @RequestParam(name = "nomeCompletoMae") Optional<String> nomeCompletoMae,
                                   @RequestParam(name = "nomeCompletoPai") Optional<String> nomeCompletoPai){
         CriancaDTO crianca = new CriancaDTO();
-//        nome.ifPresent(crianca::set);
-//        idade.ifPresent(crianca::setAge);
-//        genero.ifPresent(crianca::setGender);
-//        cpf.ifPresent(crianca::setCPF);
-//        endereco.ifPresent(crianca::setAddress);
-//        nomeCompletoMae.ifPresent(crianca::setNomeCompletoMae);
-//        nomeCompletoPai.ifPresent(crianca::setNomeCompletoPai);
+        nome.ifPresent(crianca::setName);
+        idade.ifPresent(crianca::setAge);
+        genero.ifPresent(crianca::setGender);
+        cpf.ifPresent(crianca::setCPF);
+        endereco.ifPresent(crianca::setAddress);
+        nomeCompletoMae.ifPresent(crianca::setNomeCompletoMae);
+        nomeCompletoPai.ifPresent(crianca::setNomeCompletoPai);
+        criancaService.cadastraCrianca(crianca, model);
         return "redirect:/loginAdm";
     }
 
