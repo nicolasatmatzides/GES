@@ -25,7 +25,7 @@ public class AdocaoService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-
+    //Função a ser chamada pelo usuário
     public String adoteCriancaInProgress(Long id) throws Exception {
         Adocao adocao = new Adocao();
         Crianca crianca;
@@ -44,7 +44,8 @@ public class AdocaoService {
         }
     }
 
-    public String concluiAdocao(Long id , UsuarioLogadoSession usuarioLogadoSession) throws Exception {
+    //Função usada pelo adm, apenas passar id da criança
+    public String concluiAdocao(Long id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
         Usuario usuario;
         Adocao adocao = new Adocao();
         Crianca crianca;
