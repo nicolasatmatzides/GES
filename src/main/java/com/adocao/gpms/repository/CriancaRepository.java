@@ -14,7 +14,5 @@ public interface CriancaRepository extends JpaRepository<Crianca, Long> {
 
     List<Crianca> findAllByAdocaoStatus(AdocaoStatus status);
 
-    @Query("select c from Crianca c where c.age <= ?1 and c.gender = ?2")
-    List<Crianca> findAllByAgeAndGender(String age, String gender);
-
+    List<Crianca> findAllByGenderAndAdocaoStatus(String gender, AdocaoStatus status);
 }

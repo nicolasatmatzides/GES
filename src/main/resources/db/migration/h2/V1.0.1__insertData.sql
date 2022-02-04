@@ -15,3 +15,17 @@ insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
 values(6, 'rua Y', 9,'218044984','FEMININO','Juliana', 'EMPTY');
 insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
 values(7, 'rua X', 8,'808984','FEMININO','Leilane', 'EMPTY');
+
+
+insert into duvida (id, duvida, resposta, usuario_id)
+values(1, 'essa é a minha duvida', 'essa é minha resposta', 1);
+insert into duvida (id, duvida, resposta, usuario_id)
+values(2, 'essa é a minha segunda duvida', 'essa é minha segunda resposta', 1);
+insert into duvida (id, duvida, resposta, usuario_id)
+values(3, 'essa é a minha terceira duvida', 'essa é minha segunda resposta', 1);
+insert into duvida (id, duvida, resposta, usuario_id)
+values(4, 'essa é a minha quarta duvida', 'essa é minha segunda resposta', 1);
+insert into duvida (id, duvida, resposta, usuario_id)
+values(5, 'essa é a minha quinta duvida', 'essa é minha segunda resposta', 1);
+insert into duvida (id, duvida, resposta, usuario_id)
+values(6, 'essa é a minha sexta duvida', 'essa é minha segunda resposta', 1);

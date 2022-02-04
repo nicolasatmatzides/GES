@@ -25,8 +25,8 @@ public class CriancaController {
     @Autowired
     private CriancaService criancaService;
 
-    @GetMapping("crianca/cadastra")
-    public String cadastraCrianca(){return "crianca/cadastrar";}
+    @GetMapping("crianca/paginaCadastrar")
+    public String cadastraCrianca(){return "adm/cadastroCrianca.html";}
 
 
 
@@ -46,7 +46,7 @@ public class CriancaController {
 
         model.addAttribute("criancas", criancaList);
 
-        return "result";
+        return "user/result";
 
     }
 
@@ -54,24 +54,23 @@ public class CriancaController {
     public String listarCasosSucessos(Model model){
         List<Crianca> criancaList = criancaService.listarCriancaSucesso();
         model.addAttribute("criancas", criancaList);
-
-        return "success.html";
+        return "user/success.html";
     }
 
-    @PostMapping("crianca/cadastra")
+    @PostMapping("cadastroCrianca")
     public String cadastraCrianca(Model model,
-                                  @RequestParam(name = "nome") Optional<String> nome,
-                                  @RequestParam(name = "idade") Optional<String> idade,
-                                  @RequestParam(name = "genero") Optional<String> genero,
+                                  @RequestParam(name = "nomeCompleto") Optional<String> nome,
+                                  @RequestParam(name = "dataNascimento") Optional<String> dataNascimento,
+                                  @RequestParam(name = "cpf") Optional<String> cpf,
                                   @RequestParam(name = "endereco") Optional<String> endereco,
-                                  @RequestParam(name = "rg") Optional<String> rg){
+                                  @RequestParam(name = "nomeCompletoMae") Optional<String> nomeCompletoMae,
+                                  @RequestParam(name = "nomeCompletoPai") Optional<String> nomeCompletoPai){
         CriancaDTO crianca = new CriancaDTO();
-        nome.ifPresent(crianca::setName);
-        idade.ifPresent(crianca::setAge);
-        genero.ifPresent(crianca::setGender);
-        endereco.ifPresent(crianca::setAddress);
-        rg.ifPresent(crianca::setCivilId);
-
+//        nome.ifPresent(crianca::setName);
+//        idade.ifPresent(crianca::setAge);
+//        genero.ifPresent(crianca::setGender);
+//        endereco.ifPresent(crianca::setAddress);
+//        rg.ifPresent(crianca::setCivilId);
         return criancaService.cadastraCrianca(crianca,model);
     }
 }

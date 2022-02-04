@@ -20,14 +20,14 @@ public class CriancaService {
     public String cadastraCrianca(CriancaDTO criancaDTO, Model model){
         Crianca crianca = new Crianca();
         crianca.setName(criancaDTO.getName());
-        crianca.setAge(criancaDTO.getAge());
-        crianca.setGender(criancaDTO.getGender());
+//        crianca.setAge(criancaDTO.getAge());
+//        crianca.setGender(criancaDTO.getGender());
         crianca.setAdocaoStatus(AdocaoStatus.EMPTY);
         crianca.setAddress(criancaDTO.getAddress());
         crianca.setCivilId(crianca.getCivilId());
         criancaRepository.save(crianca);
         model.addAttribute("crianca", crianca);
-       return "cadastrar/crianca";
+       return "cadastroCrianca";
     }
 
     public List<Crianca> listaCriancaDisponiveis() {
@@ -51,16 +51,26 @@ public class CriancaService {
     }
 
     public List<Crianca> busca(String age, String gender) {
-
         List<Crianca> criancaList = new ArrayList<>();
         try {
-            criancaList = criancaRepository.findAllByAgeAndGender(age, gender);
+            if(gender.equals("INDIFERE")) {
+                return filterByAge(age, criancaRepository.findAllByAdocaoStatus(AdocaoStatus.EMPTY));
+            }else
+                criancaList = filterByAge(age, criancaRepository.findAllByGenderAndAdocaoStatus(gender, AdocaoStatus.EMPTY));
         }catch (Exception e){
             e.printStackTrace();
         }
         return criancaList;
+    }
 
-
+    public List<Crianca> filterByAge(String age, List<Crianca> criancaList){
+        List<Crianca> listFilterByAge = new ArrayList<>();
+        for(int i = 0; i < criancaList.size(); i++){
+            if(Integer.parseInt(criancaList.get(i).getAge()) <= Integer.parseInt(age)){
+                listFilterByAge.add(criancaList.get(i));
+            }
+        }
+        return listFilterByAge;
     }
 
 }
