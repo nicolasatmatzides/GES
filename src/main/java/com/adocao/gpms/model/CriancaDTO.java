@@ -19,5 +19,4 @@ public class CriancaDTO {
 
     private String DataNascimento;
 
-
 }

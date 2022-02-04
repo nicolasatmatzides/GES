@@ -54,19 +54,23 @@ public class CriancaController {
     }
 
     @PostMapping("cadastroCrianca")
-    public String cadastraCrianca(Model model,
-                                  @RequestParam(name = "nomeCompleto") Optional<String> nome,
+    public String cadastraCrianca(@RequestParam(name = "nomeCompleto") Optional<String> nome,
                                   @RequestParam(name = "dataNascimento") Optional<String> dataNascimento,
+                                  @RequestParam(name = "genero") Optional<String> genero,
                                   @RequestParam(name = "cpf") Optional<String> cpf,
                                   @RequestParam(name = "endereco") Optional<String> endereco,
                                   @RequestParam(name = "nomeCompletoMae") Optional<String> nomeCompletoMae,
                                   @RequestParam(name = "nomeCompletoPai") Optional<String> nomeCompletoPai){
         CriancaDTO crianca = new CriancaDTO();
-//        nome.ifPresent(crianca::setName);
+//        nome.ifPresent(crianca::set);
 //        idade.ifPresent(crianca::setAge);
 //        genero.ifPresent(crianca::setGender);
+//        cpf.ifPresent(crianca::setCPF);
 //        endereco.ifPresent(crianca::setAddress);
-//        rg.ifPresent(crianca::setCivilId);
-        return criancaService.cadastraCrianca(crianca,model);
+//        nomeCompletoMae.ifPresent(crianca::setNomeCompletoMae);
+//        nomeCompletoPai.ifPresent(crianca::setNomeCompletoPai);
+        return "redirect:/loginAdm";
     }
+
+
 }
