@@ -10,114 +10,115 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg mb-4 navbar-light">
-            <div class="container">
-                <a class="navbar-brand" href="./home">
-                    <img th:src="@{img/logo.png}" alt="logo" class="d-inline-block align-top">
-                </a>
+    <nav class="navbar navbar-expand-lg mb-4 navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/home">
+                <img th:src="@{img/logo.png}" alt="logo" class="d-inline-block align-top">
+            </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navmenu">
-                    <ul class="navbar-nav ms-auto d-flex mb-2 mb-lg-0">
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="/home">Início</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link active" href="/como-adotar">Como adotar</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="/casos-sucesso">Casos de sucesso</a>
-                        </li>
-                        <li class="nav-item dropdown mx-2">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Processo de adoção
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Adote uma criança</a></li>
-                                <li><a class="dropdown-item" href="./em-construcao">Minhas adoções</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown mx-2 li-profile">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img id="btn-profile" th:src="@{img/profile.png}" alt="Perfil">
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                <li>
-                                    <form method="GET" action="/em-construcao">
-                                        <button class="btn" type="submit" id="btn-adm">Administração</button>
-                                    </form>
-                                </li>
-                                <li>
-                                    <form method="POST" action="/logout">
-                                        <button class="btn" type="submit" id="btn-exit">Sair</button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- offcanvas menu -->
-
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel">Buscar criança</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-
-                <form action="/busca" method="get" id="form-search">
-
-                    <h6>Sexo</h6>
-
-                    <div class="input-container">
-
-                        <!--                    <div class="form-check">-->
-                        <!--                        <input class="form-check-input" type="radio" name="sexo" id="sexo1" value="INDIFERE" checked>-->
-                        <!--                        <label class="form-check-label" for="sexo1">-->
-                        <!--                            Indifere-->
-                        <!--                        </label>-->
-                        <!--                    </div>-->
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sexo" id="sexo2" value="FEMININO" checked>
-                            <label class="form-check-label" for="sexo2">
-                                Feminino
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sexo" id="sexo3" value="MASCULINO">
-                            <label class="form-check-label" for="sexo3">
-                                Masculino
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <h6>Idade máxima</h6>
-
-                    <div class="mb-3">
-                        <input type="number" class="form-control" min="0" name="idade" value="0" required>
-                    </div>
-
-                    <!--                <h6>Quantidade máxima de irmãos*</h6>-->
-
-                    <!--                <div class="mb-3">-->
-                    <!--                    <input type="number" class="form-control" min="0" name="max-irmaos" value="0" required>-->
-                    <!--                    <div id="max-irmaos" class="form-text">*Ao adotar uma criança com irmão, é obrigatório aceitá-los na adoção.</div>-->
-                    <!--                </div>-->
-
-                    <button type="submit" class="btn">Filtrar</button>
-
-                </form>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto d-flex mb-2 mb-lg-0">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="/home">Início</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" href="/como-adotar">Como adotar</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="/casos-sucesso">Casos de sucesso</a>
+                    </li>
+                    <li class="nav-item dropdown mx-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Processo de adoção
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Adote uma criança</a></li>
+                            <li><a class="dropdown-item" href="/paginaAdocao">Minhas adoções</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown mx-2 li-profile">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img id="btn-profile" th:src="@{img/profile.png}" alt="Perfil">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <li>
+                                <form method="GET" action="/loginAdm">
+                                    <button class="btn" type="submit" id="btn-adm">Administração</button>
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST" action="/logout">
+                                    <button class="btn" type="submit" id="btn-exit">Sair</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
+    <div id="header"></div>
+    <!-- offcanvas menu -->
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Buscar criança</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+
+            <form action="/busca" method="get" id="form-search">
+
+                <h6>Sexo</h6>
+
+                <div class="input-container">
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="sexo1" value="INDIFERE" checked>
+                        <label class="form-check-label" for="sexo1">
+                            Indifere
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="sexo2" value="FEMININO" checked>
+                        <label class="form-check-label" for="sexo2">
+                            Feminino
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sexo" id="sexo3" value="MASCULINO">
+                        <label class="form-check-label" for="sexo3">
+                            Masculino
+                        </label>
+                    </div>
+
+                </div>
+
+                <h6>Idade máxima</h6>
+
+                <div class="mb-3">
+                    <input type="number" class="form-control" min="0" name="idade" value="0" required>
+                </div>
+
+                <!--                <h6>Quantidade máxima de irmãos*</h6>-->
+
+                <!--                <div class="mb-3">-->
+                <!--                    <input type="number" class="form-control" min="0" name="max-irmaos" value="0" required>-->
+                <!--                    <div id="max-irmaos" class="form-text">*Ao adotar uma criança com irmão, é obrigatório aceitá-los na adoção.</div>-->
+                <!--                </div>-->
+
+                <button type="submit" class="btn">Filtrar</button>
+
+            </form>
+
+        </div>
+    </div>
 
         <div class="container">
 

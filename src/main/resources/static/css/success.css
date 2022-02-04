@@ -106,10 +106,13 @@ section .cards .card {
 }
 
 footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px 0 15px 0;
-    margin-top: 50px;
 }

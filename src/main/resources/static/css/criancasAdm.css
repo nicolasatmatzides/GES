@@ -46,8 +46,11 @@ section h4 {
     margin-bottom: 50px;
 }
 
-
-footer {
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
