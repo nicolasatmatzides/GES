@@ -38,7 +38,7 @@ public class AdocaoService {
                 adocaoRepository.save(adocao);
                 criancaRepository.save(crianca);
             }
-                return "emAdamento";
+            return "redirect:/paginaAdocao";
         }catch (Exception exception){
             throw new Exception("erro ao adotar criança");
         }
@@ -60,7 +60,7 @@ public class AdocaoService {
                 adocaoRepository.save(adocao);
                 criancaRepository.save(crianca);
             }
-                return "adotado";
+                return "redirect:/processosAdocaoAdmin";
         }catch (Exception exception){
             throw new Exception("erro ao adotar criança");
         }

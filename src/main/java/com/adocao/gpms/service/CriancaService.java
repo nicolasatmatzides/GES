@@ -50,6 +50,16 @@ public class CriancaService {
         return criancaList;
     }
 
+    public List<Crianca> listarCriancaInProgress() {
+        List<Crianca> criancaList = new ArrayList<>();
+        try {
+            criancaList = criancaRepository.findAllByAdocaoStatus(AdocaoStatus.IN_PROGRESS);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return criancaList;
+    }
+
     public List<Crianca> busca(String age, String gender) {
         List<Crianca> criancaList = new ArrayList<>();
         try {

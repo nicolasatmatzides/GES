@@ -123,31 +123,21 @@
 <div class="container" id="container">
 
     <section>
-
         <h4 class="text-center">Resultados de Busca</h4>
-
         <div class="cards" id="cards">
-
             <th:block th:each="crianca : ${criancas}">
-
                 <div class="card">
-
                     <div class="card-body">
-
                         <h5 class="card-title" th:text="${crianca.Name}"></h5>
-
                         <p class="card-text" th:text="${crianca.Age}"></p>
-
+                        <form method="POST" action="crianca-adotar">
+                            <button type="submit" th:name="id" th:value="${crianca.id}">Adote</button>
+                        </form>
                     </div>
-
                 </div>
-
             </th:block>
-
         </div>
-
     </section>
-
 </div>
 
 <footer class="fixed-bottom">

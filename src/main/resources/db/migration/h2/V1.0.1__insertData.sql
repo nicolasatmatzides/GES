@@ -15,6 +15,12 @@ insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
 values(6, 'rua Y', 9,'218044984','FEMININO','Juliana', 'EMPTY');
 insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
 values(7, 'rua X', 8,'808984','FEMININO','Leilane', 'EMPTY');
+insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
+values(8, 'rua X', 8,'808984','FEMININO','Júlia', 'IN_PROGRESS');
+insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
+values(9, 'rua X', 8,'808984','FEMININO','Laís', 'IN_PROGRESS');
+insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
+values(10, 'rua X', 8,'808984','FEMININO','Pedro', 'IN_PROGRESS');
 
 
 insert into duvida (id, duvida, resposta, usuario_id)
