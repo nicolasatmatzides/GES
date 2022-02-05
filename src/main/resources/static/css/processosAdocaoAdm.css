@@ -69,12 +69,30 @@ table thead{
     color: #555555;
 }
 
+tbody th{
+    font-weight: 400;
+}
+
 table th{
     width: 500px;
     padding: 20px;
     letter-spacing: 2px;
 }
 
+tbody th:last-child{
+    display: inline;
+}
+
+table button{
+    color: #FFFFFF;
+    background-color: #FF6243;
+    outline: none !important;
+    box-shadow: none !important;
+    border: solid 1px #FF6243;
+    width: 90px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
 
 footer {
     position: fixed;
