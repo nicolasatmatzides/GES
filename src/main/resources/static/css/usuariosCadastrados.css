@@ -37,13 +37,29 @@ body {
 .input-container * {
     margin-right: 5px;
 }
+section {
+    padding: 50px 0 0 0;
+}
 
 section h4 {
     text-align: center;
     font-weight: normal;
     letter-spacing: 2px;
     color: #555555;
-    margin-bottom: 70px;
+    padding-bottom: 60px;
+}
+
+.registrarAdm{
+    color: #FFFFFF;
+    background-color: #FF6243;
+    outline: none !important;
+    box-shadow: none !important;
+    border: solid 1px #FF6243;
+    width: 200px;
+    border-radius: 7px;
+    position: absolute;
+    top: 30% !important;
+    right: 15% !important;
 }
 
 section button{
@@ -53,7 +69,7 @@ section button{
 
 table{
     margin: 0 auto;
-    padding-bottom: 60px;
+    margin-bottom: 100px;
     background-size: 100% auto;
 }
 table thead, table tbody{

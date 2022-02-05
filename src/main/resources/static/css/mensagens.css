@@ -37,6 +37,10 @@ body {
 .input-container * {
     margin-right: 5px;
 }
+section {
+    padding: 50px 0 0 0;
+    margin-bottom: 100px;
+}
 
 section h4 {
     text-align: center;

@@ -38,6 +38,10 @@ body {
     margin-right: 5px;
 }
 
+section {
+    padding: 50px 0 0 0;
+}
+
 section h4 {
     text-align: center;
     font-weight: normal;
@@ -53,7 +57,7 @@ section button{
 
 table{
     margin: 0 auto;
-    padding-bottom: 60px;
+    margin-bottom: 100px;
     background-size: 100% auto;
 }
 table thead, table tbody{
