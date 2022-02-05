@@ -20,8 +20,8 @@ public class CriancaService {
     public String cadastraCrianca(CriancaDTO criancaDTO, Model model){
         Crianca crianca = new Crianca();
         crianca.setName(criancaDTO.getName());
-//        crianca.setAge(criancaDTO.getAge());
-//        crianca.setGender(criancaDTO.getGender());
+        crianca.setAge(criancaDTO.getAge());
+        crianca.setGender(criancaDTO.getGender());
         crianca.setAdocaoStatus(AdocaoStatus.EMPTY);
         crianca.setAddress(criancaDTO.getAddress());
         crianca.setCivilId(crianca.getCivilId());
@@ -44,6 +44,16 @@ public class CriancaService {
         List<Crianca> criancaList = new ArrayList<>();
         try {
             criancaList = criancaRepository.findAllByAdocaoStatus(AdocaoStatus.COMPLETED);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return criancaList;
+    }
+
+    public List<Crianca> listarCriancaInProgress() {
+        List<Crianca> criancaList = new ArrayList<>();
+        try {
+            criancaList = criancaRepository.findAllByAdocaoStatus(AdocaoStatus.IN_PROGRESS);
         }catch (Exception e){
             e.printStackTrace();
         }

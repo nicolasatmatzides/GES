@@ -28,13 +28,14 @@ public class CriancaController {
     @GetMapping("crianca/paginaCadastrar")
     public String cadastraCrianca(){return "adm/cadastroCrianca.html";}
 
+    @GetMapping("crianca/excluir")
+    public String excluirCrianca(){
+        return "redirect:/loginAdm";
+    }
 
-
-    @GetMapping("crianca/disponiveis")
-    public List listaCriancasDisponiveis(Model model){
-
-        List<Crianca> criancaList = criancaService.listaCriancaDisponiveis();
-        return criancaList;
+    @GetMapping("crianca/editar")
+    public String editarCrianca(){
+        return "redirect:/loginAdm";
     }
 
     @GetMapping("/busca")
@@ -60,17 +61,23 @@ public class CriancaController {
     @PostMapping("cadastroCrianca")
     public String cadastraCrianca(Model model,
                                   @RequestParam(name = "nomeCompleto") Optional<String> nome,
-                                  @RequestParam(name = "dataNascimento") Optional<String> dataNascimento,
+                                  @RequestParam(name = "idade") Optional<String> idade,
+                                  @RequestParam(name = "genero") Optional<String> genero,
                                   @RequestParam(name = "cpf") Optional<String> cpf,
                                   @RequestParam(name = "endereco") Optional<String> endereco,
                                   @RequestParam(name = "nomeCompletoMae") Optional<String> nomeCompletoMae,
                                   @RequestParam(name = "nomeCompletoPai") Optional<String> nomeCompletoPai){
         CriancaDTO crianca = new CriancaDTO();
-//        nome.ifPresent(crianca::setName);
-//        idade.ifPresent(crianca::setAge);
-//        genero.ifPresent(crianca::setGender);
-//        endereco.ifPresent(crianca::setAddress);
-//        rg.ifPresent(crianca::setCivilId);
-        return criancaService.cadastraCrianca(crianca,model);
+        nome.ifPresent(crianca::setName);
+        idade.ifPresent(crianca::setAge);
+        genero.ifPresent(crianca::setGender);
+        cpf.ifPresent(crianca::setCPF);
+        endereco.ifPresent(crianca::setAddress);
+        nomeCompletoMae.ifPresent(crianca::setNomeCompletoMae);
+        nomeCompletoPai.ifPresent(crianca::setNomeCompletoPai);
+        criancaService.cadastraCrianca(crianca, model);
+        return "redirect:/loginAdm";
     }
+
+
 }

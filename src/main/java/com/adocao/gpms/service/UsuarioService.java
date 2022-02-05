@@ -27,7 +27,7 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
 
-    public Usuario cadastrarUsuario(UsuarioDTO dto) {
+    public Usuario cadastrarUsuario(UsuarioDTO dto, String role) {
 
         BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
         String senha = bcrypt.encode(dto.getSenha());
@@ -35,7 +35,7 @@ public class UsuarioService {
         Usuario usuario = new Usuario();
         usuario.setEmail(dto.getEmail());
         usuario.setPassword(senha);
-        usuario.setRole("ROLE_USER");
+        usuario.setRole(role);
         usuario.setName(dto.getUsername());
         usuario.setAge(dto.getAge());
         usuario.setGender(dto.getGender());

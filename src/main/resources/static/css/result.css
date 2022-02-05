@@ -3,7 +3,7 @@ body {
 }
 
 .navbar {
-    -webkit-box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.1); 
+    -webkit-box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.1);
     box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.1);
     padding: 10px;
     background-color: #FFFFFF;
@@ -67,20 +67,6 @@ body {
     border: 2px solid #FF6243;
 }
 
-.link-carousel {
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-.link-carousel:hover {
-    color: #FFFFFF;
-    text-decoration: underline;
-}
-
-section {
-    padding: 50px 0 0 0;
-}
-
 section h4 {
     text-align: center;
     font-weight: normal;
@@ -110,51 +96,26 @@ section .cards .card .card-body * {
     margin: 10px;
 }
 
-section .cards .card .card-footer {
-    background-color: #FFFFFF;
-    border: none;
-    padding: 0 26px 26px 26px
-}
-
-section .cards .card .card-footer span {
-    font-size: 14px;
-    color: #555555;
-}
-
-section #form-contact {
-    width: 24rem;
-}
-
-@media (max-width: 500px) {
-    section #form-contact {
-        width: 18rem;
-    }
-}
-
-@media (max-width: 400px) {
-    section #form-contact {
-        width: 15rem;
-    }
-}
-
-section:last-child {
+section .cards .card {
+    width: 18rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid #FF6243;
 }
 
-section #form-contact button {
-    background-color: #FF6243;
+section button{
     color: #FFFFFF;
-    padding: 5px 30px;
-}
-
-section #form-contact textarea:focus {
+    background-color: #FF6243;
     outline: none !important;
-    box-shadow: none;
-    border: 2px solid #FF6243;
+    box-shadow: none !important;
+    border: solid 1px #FF6243;
+    width: 90px;
+    border-radius: 7px;
+    margin-bottom: 10px;
 }
-
 
 footer {
     position: fixed;

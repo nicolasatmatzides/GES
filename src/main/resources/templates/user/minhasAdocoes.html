@@ -5,8 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link th:href="@{css/success.css}" rel="stylesheet" />
+        <link th:href="@{css/minhasAdocoes.css}" rel="stylesheet" />
         <script src="https://unpkg.com/axios@0.21.4/dist/axios.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <title>Adote-me</title>
     </head>
     <body>
@@ -120,136 +121,31 @@
             </div>
         </div>
 
-        <div class="container" id="container">
+        <section>
+            <h4>Minhas Adoções</h4>
+        </section>
 
-            <section>
+        <table>
+            <thead>
+            <th>Nome</th>
+            <th>Idade</th>
+            </thead>
+            <th:block th:each="crianca : ${criancasDisponiveis}">
+                <tbody>
+                <th th:text="${crianca.Name}"></th>
+                <th th:text="${crianca.age}"></th>
 
-                <h4 class="text-center">Casos de sucesso</h4>
+                </tbody>
+            </th:block>
+        </table>
 
-                <div class="cards" id="cards">
 
-                    <div class="card">
-
-                        <img class="card-img-top" th:src="@{img/image 2.png}" />
-
-                        <div class="card-body">
-
-                            <h5 class="card-title">Juan Diego</h5>
-
-                            <p class="card-text">11 anos</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="card">
-
-                        <img class="card-img-top" th:src="@{img/image 2-1.png}" />
-
-                        <div class="card-body">
-
-                            <h5 class="card-title">Germano Dias</h5>
-
-                            <p class="card-text">11 anos</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="card">
-
-                        <img class="card-img-top" th:src="@{img/image 2-2.png}" />
-
-                        <div class="card-body">
-
-                            <h5 class="card-title">Julia Porcher</h5>
-
-                            <p class="card-text">11 anos</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <section style="margin: 40px 0 100px 0">
-
-                <h4 class="text-center">Estatísticas</h4>
-
-                <div id="graficoIdade" style="margin-bottom: 40px">
-
-                </div>
-
-                <div id="graficoSexo">
-
-                </div>
-
-            </section>
-
-        </div>
-
-        <footer class="fixed-bottom">
+        <footer>
 
             <img th:src="@{img/logo.png}" alt="logo">
 
         </footer>
 
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-        <script>
-
-            google.charts.load('current', {'packages':['corechart']});
-
-            function desenharPizzaIdade (){
-
-                var tabela = new google.visualization.DataTable();
-                tabela.addColumn('string','idade');
-                tabela.addColumn('number','adotados');
-                tabela.addRows([
-                    ['0 - 1 anos', 3],
-                    ['1 - 2 anos', 2],
-                    ['2 - 3 anos', 1],
-                    ['4 - 5 anos', 0]
-                ]);
-
-                var opcoes = {
-                    'title': 'Adotados por faixa etária'
-                };
-
-                var grafico = new google.visualization.PieChart(document.getElementById('graficoIdade'));
-                grafico.draw(tabela, opcoes);
-
-            }
-
-        google.charts.setOnLoadCallback(desenharPizzaIdade);
-
-        function desenharPizzaSexo (){
-
-                var tabela = new google.visualization.DataTable();
-                tabela.addColumn('string','idade');
-                tabela.addColumn('number','adotados');
-                tabela.addRows([
-                    ['Feminino', 3],
-                    ['Masculino', 3]
-                ]);
-
-                var opcoes = {
-                    'title': 'Adotados por sexo'
-                };
-
-                var grafico = new google.visualization.PieChart(document.getElementById('graficoSexo'));
-                grafico.draw(tabela, opcoes);
-
-            }
-
-        google.charts.setOnLoadCallback(desenharPizzaSexo);
-
-
-        </script>
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-
     </body>
 </html>

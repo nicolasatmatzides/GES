@@ -37,6 +37,10 @@ body {
 .input-container * {
     margin-right: 5px;
 }
+section {
+    padding: 50px 0 0 0;
+    margin-bottom: 100px;
+}
 
 section h4 {
     text-align: center;
@@ -74,11 +78,15 @@ section .cards .card {
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: 1px solid #FF6243;
+    border-bottom: 1px solid #FF6243;
     margin-bottom: 40px;
 }
 
 footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
