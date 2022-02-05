@@ -103,6 +103,7 @@ section .cards .card {
     align-items: center;
     justify-content: center;
     text-align: center;
+    border-bottom: 1px solid #FF6243;
 }
 
 section button{
