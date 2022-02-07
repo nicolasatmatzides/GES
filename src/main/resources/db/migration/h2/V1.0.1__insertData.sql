@@ -37,9 +37,9 @@ insert into duvida (id, duvida, resposta, usuario_id)
 values(6, 'essa é a minha sexta duvida', 'essa é minha segunda resposta', 1);
 
 insert into siblings(id, crianca_id)
-values(1,1)
-    insert into siblings(id, crianca_id)
-values(2,2)
+values(1,1);
 insert into siblings(id, crianca_id)
-values(3,3)
+values(2,2);
+insert into siblings(id, crianca_id)
+values(3,3);
 
