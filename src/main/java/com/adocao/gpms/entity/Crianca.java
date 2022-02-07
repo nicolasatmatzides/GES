@@ -32,6 +32,9 @@ public class Crianca {
     @Column
     private String CivilId;
 
+    @ManyToOne
+    private Siblings siblings;
+
     @Column
     private AdocaoStatus adocaoStatus;
 }

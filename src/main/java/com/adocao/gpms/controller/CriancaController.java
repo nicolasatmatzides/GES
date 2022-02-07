@@ -1,6 +1,7 @@
 package com.adocao.gpms.controller;
 
 import com.adocao.gpms.entity.Crianca;
+import com.adocao.gpms.model.AdocaoStatus;
 import com.adocao.gpms.model.CriancaDTO;
 import com.adocao.gpms.security.UsuarioLogadoSession;
 import com.adocao.gpms.service.CriancaService;
@@ -8,10 +9,7 @@ import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -78,6 +76,30 @@ public class CriancaController {
         criancaService.cadastraCrianca(crianca, model);
         return "redirect:/loginAdm";
     }
+    @DeleteMapping("deletaCrianca")
+    public void Deleta(@RequestParam(name = "id") Optional<String> id){
+        criancaService.excluiCrianca(Long.parseLong(String.valueOf(id)));
+    }
 
-
+    public String editaCrianca(Model model,
+                                  @RequestParam(name = "nomeCompleto") Optional<String> nome,
+                                  @RequestParam(name = "idade") Optional<String> idade,
+                                  @RequestParam(name = "genero") Optional<String> genero,
+                                  @RequestParam(name = "cpf") Optional<String> cpf,
+                                  @RequestParam(name = "endereco") Optional<String> endereco,
+                                  @RequestParam(name = "status") Optional<AdocaoStatus> adocaoStatus,
+                                  @RequestParam(name = "nomeCompletoMae") Optional<String> nomeCompletoMae,
+                                  @RequestParam(name = "nomeCompletoPai") Optional<String> nomeCompletoPai){
+        CriancaDTO crianca = new CriancaDTO();
+        nome.ifPresent(crianca::setName);
+        idade.ifPresent(crianca::setAge);
+        genero.ifPresent(crianca::setGender);
+        cpf.ifPresent(crianca::setCPF);
+        endereco.ifPresent(crianca::setAddress);
+        adocaoStatus.ifPresent(crianca::setAdocaoStatus);
+        nomeCompletoMae.ifPresent(crianca::setNomeCompletoMae);
+        nomeCompletoPai.ifPresent(crianca::setNomeCompletoPai);
+        criancaService.editaCrianca(crianca, model);
+        return "redirect:/loginAdm";
+    }
 }

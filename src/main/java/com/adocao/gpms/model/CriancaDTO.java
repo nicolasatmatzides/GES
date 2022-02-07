@@ -23,4 +23,6 @@ public class CriancaDTO {
 
     private String DataNascimento;
 
+    private AdocaoStatus adocaoStatus;
+
 }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@Controller()
 public class AdocaoController {
 
     @Autowired
@@ -29,7 +29,7 @@ public class AdocaoController {
 
     @PostMapping("/crianca-adotar")
     public String adoteCriançaEmpty(@RequestParam(name = "id")Optional<String> id) throws Exception {
-        return adocaoService.adoteCriancaInProgress(Long.parseLong(String.valueOf(id)));
+        return adocaoService.adoteCriancaInProgress(Long.parseLong(String.valueOf(id)), usuarioLogadoSession);
     }
 
     @PostMapping("/adocaoCompleta")
