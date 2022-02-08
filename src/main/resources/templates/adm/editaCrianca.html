@@ -16,40 +16,42 @@
         <div id="container-register">
             <img th:src="@{img/logo.png}" alt="logo" class="d-inline-block align-top">
             <span>Cadastrar</span>
-            <form action="editaCrianca" method="post" id="form-register">
+            <th:block th:each="crianca : ${criancaEditar}">
+                <form action="editaCrianca" method="post" id="form-register">
 
-                <div class="form-label">
-                    <input type="text" class="form-control" name="nomeCompleto" placeholder="Nome Completo" required>
-                </div>
+                    <div class="form-label">
+                        <input type="text" class="form-control" name="nomeCompleto" placeholder="Nome Completo" th:value="${crianca.Name}" required>
+                    </div>
 
-                <div class="form-label">
-                    <input type="text" class="form-control" name="idade" placeholder="Idade" required>
-                </div>
+                    <div class="form-label">
+                        <input type="text" class="form-control" name="idade" placeholder="Idade" th:value="${crianca.age}" required>
+                    </div>
 
-                <div class="form-label">
-                    <input type="text" class="form-control" name="genero" placeholder="Gênero" required>
-                </div>
+                    <div class="form-label">
+                        <input type="text" class="form-control" name="genero" placeholder="Gênero" th:value="${crianca.gender}" required>
+                    </div>
 
-                <div class="form-label">
-                    <input type="text" class="form-control" name="cpf" placeholder="CPF" required>
-                </div>
+                    <div class="form-label">
+                        <input type="text" class="form-control" name="cpf" placeholder="CPF" th:value="${crianca.CivilId}" required>
+                    </div>
 
-                <div class="form-label">
-                    <input type="text" class="form-control" name="endereco" placeholder="Endereço" required>
-                </div>
+                    <div class="form-label">
+                        <input type="text" class="form-control" name="endereco" placeholder="Endereço" th:value="${crianca.Address}" required>
+                    </div>
 
-                <div class="form-label">
-                    <input type="text" class="form-control" name="nomeCompletoMae" placeholder="Nome Completo da mãe" required>
-                </div>
+                    <div class="form-label">
+                        <input type="text" class="form-control" name="nomeCompletoMae" placeholder="Nome Completo da mãe" th:value="${crianca.Name}" required>
+                    </div>
 
-                <div class="form-label">
-                    <input type="text" class="form-control" name="nomeCompletoPai" placeholder="Nome Completo do pai" required>
-                </div>
+                    <div class="form-label">
+                        <input type="text" class="form-control" name="nomeCompletoPai" placeholder="Nome Completo do pai" th:value="${crianca.Name}" required>
+                    </div>
 
-                <div class="form-label">
-                    <input type="submit" class="form-control" value="Editar dados">
-                </div>
-            </form>
+                    <div class="form-label">
+                        <input type="submit" class="form-control" value="Editar dados">
+                    </div>
+                </form>
+            </th:block>
         </div>
     </div>
 

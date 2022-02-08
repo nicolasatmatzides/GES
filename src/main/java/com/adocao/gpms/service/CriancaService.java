@@ -43,6 +43,11 @@ public class CriancaService {
         return "editarCrianca";
     }
 
+    public Crianca infoCrianca(Long id){
+        Crianca crianca = criancaRepository.findById(id).orElseThrow();
+        return crianca;
+    }
+
     public void excluiCrianca(Long id){
         try{
         Crianca crianca  = criancaRepository.findById(id).orElseThrow();

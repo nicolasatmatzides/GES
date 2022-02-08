@@ -31,8 +31,11 @@ public class CriancaController {
         return "redirect:/loginAdm";
     }
 
-    @GetMapping("crianca/editar")
-    public String editarCrianca(){
+    @PostMapping("/paginaEditar")
+    public String editarCrianca(@RequestParam("id") String id, Model model){
+        System.out.println(id);
+        Crianca crianca = criancaService.infoCrianca(Long.parseLong(String.valueOf(id)));
+        model.addAttribute("criancaEditar", crianca);
         return "adm/editaCrianca.html";
     }
 
