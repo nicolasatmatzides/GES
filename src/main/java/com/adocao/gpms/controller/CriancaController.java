@@ -33,7 +33,7 @@ public class CriancaController {
 
     @GetMapping("crianca/editar")
     public String editarCrianca(){
-        return "redirect:/loginAdm";
+        return "adm/editaCrianca.html";
     }
 
     @GetMapping("/busca")
@@ -76,9 +76,11 @@ public class CriancaController {
         criancaService.cadastraCrianca(crianca, model);
         return "redirect:/loginAdm";
     }
-    @DeleteMapping("/deletaCrianca")
-    public void Deleta(@RequestParam(name = "id") Optional<String> id){
+    @PostMapping("/deletaCrianca")
+    public String Deleta(@RequestParam("id") String id){
+        System.out.println(id);
         criancaService.excluiCrianca(Long.parseLong(String.valueOf(id)));
+        return "redirect:/loginAdm";
     }
 
     @PostMapping("/editaCrianca")

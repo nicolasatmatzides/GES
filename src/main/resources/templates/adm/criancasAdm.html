@@ -76,8 +76,8 @@
                             <form method="GET" action="crianca/editar">
                                 <button class="editar">Editar</button>
                             </form>
-                            <form method="GET" action="crianca/excluir">
-                                <button class="excluir">Excluir</button>
+                            <form method="POST" action="/deletaCrianca">
+                                <button type="submit" th:name="id" th:value="${crianca.id}">Excluir</button>
                             </form>
                         </div>
                     </div>
