@@ -76,11 +76,12 @@ public class CriancaController {
         criancaService.cadastraCrianca(crianca, model);
         return "redirect:/loginAdm";
     }
-    @DeleteMapping("deletaCrianca")
+    @DeleteMapping("/deletaCrianca")
     public void Deleta(@RequestParam(name = "id") Optional<String> id){
         criancaService.excluiCrianca(Long.parseLong(String.valueOf(id)));
     }
 
+    @PostMapping("/editaCrianca")
     public String editaCrianca(Model model,
                                   @RequestParam(name = "nomeCompleto") Optional<String> nome,
                                   @RequestParam(name = "idade") Optional<String> idade,
