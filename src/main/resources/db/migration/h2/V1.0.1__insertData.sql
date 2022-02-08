@@ -1,3 +1,10 @@
+insert into siblings(id, crianca_id)
+values(1,1);
+insert into siblings(id, crianca_id)
+values(2,2);
+insert into siblings(id, crianca_id)
+values(3,3);
+
 insert into usuario (id, address, age, civil_id, gender, name, active, cpf, email, password, role)
 values(1,'rua exemplo', 23, '25696969', 'male', 'usuario Normal', '1', '0000000000', 'exemplo@gmail.com', '$2a$10$86ORR1UDP9neidEPmsHqUOxP9jaiL5CLjVZedkRgxto6tNfnBK0EO', 'ROLE_USER');
 insert into usuario (id, address, age, civil_id, gender, name, active, cpf, email, password, role)
@@ -35,10 +42,4 @@ values(5, 'essa é a minha quinta duvida', 'essa é minha segunda resposta', 1);
 insert into duvida (id, duvida, resposta, usuario_id)
 values(6, 'essa é a minha sexta duvida', 'essa é minha segunda resposta', 1);
 
-insert into siblings(id, crianca_id)
-values(1,1);
-insert into siblings(id, crianca_id)
-values(2,2);
-insert into siblings(id, crianca_id)
-values(3,3);
 
