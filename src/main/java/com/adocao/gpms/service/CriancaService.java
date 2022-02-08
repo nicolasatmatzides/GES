@@ -43,8 +43,8 @@ public class CriancaService {
         return "editarCrianca";
     }
 
-    public Crianca infoCrianca(Long id){
-        Crianca crianca = criancaRepository.findById(id).orElseThrow();
+    public CriancaDTO infoCrianca(Long id){
+        CriancaDTO crianca = criancaRepository.findById(id).orElseThrow();
         return crianca;
     }
 
