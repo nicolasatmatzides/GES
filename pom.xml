@@ -74,15 +74,13 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
+				<groupId>com.heroku.sdk</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.0.3</version>
 				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
+					<processTypes>
+						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+					</processTypes>
 				</configuration>
 			</plugin>
 		</plugins>
