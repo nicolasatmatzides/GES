@@ -4,7 +4,7 @@ insert into usuario (id, address, age, civil_id, gender, name, active, cpf, emai
 values(2,'rua exemplo', 23, '25696970', 'male', 'usuario admin  ', '1', '0000000001', 'admim@gmail.com', '$2a$10$86ORR1UDP9neidEPmsHqUOxP9jaiL5CLjVZedkRgxto6tNfnBK0EO', 'ROLE_ADMIN');
 
 insert into crianca (id, address, age, civil_id, siblings_id, gender, name, adocao_status)
-values(1, 'rua da adoção', 11,'2020202020',1,'MASCULINO','Claudio', 'COMPLETED');
+values(1, 'rua da adoção', 11,'2020202020',1,'MASCULINO','Claudio','COMPLETED');
 insert into crianca (id, address, age, civil_id, siblings_id, gender, name, adocao_status)
 values(2, 'rua da adoção', 10,'20202021',2,'FEMININO','Joana', 'COMPLETED');
 insert into crianca (id, address, age, civil_id, siblings_id, gender, name, adocao_status)
