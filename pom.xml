@@ -79,7 +79,7 @@
 				<version>3.0.4</version>
 				<configuration>
 					<processTypes>
-						<web>java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar</web>
+						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* AdocaoApplication</web>
 					</processTypes>
 				</configuration>
 			</plugin>
