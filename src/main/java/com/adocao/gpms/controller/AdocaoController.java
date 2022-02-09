@@ -55,12 +55,10 @@ public class AdocaoController {
         return "user/minhasAdocoes.html";
     }
 
-    @GetMapping("/minhaadocao")
-    public String minhaAdocao(Model model,
-                              @RequestParam(name = "id")Optional<String> id){
-        AdocaoDto adocao = new AdocaoDto();
-        id.ifPresent(adocao::setId);
-        adocaoService.minhaAdocao(adocao.getId());
+    @GetMapping("/minhasAdocoes")
+    public String minhaAdocao(Model model){
+        List<Crianca> criancaList = adocaoService.minhaAdocao(usuarioLogadoSession.getId());
+        model.addAttribute("minhasAdocoesList", criancaList);
         return "user/minhasAdocoes.html";
     }
 }

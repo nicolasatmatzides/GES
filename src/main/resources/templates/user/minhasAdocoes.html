@@ -38,7 +38,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Adote uma criança</a></li>
-                                <li><a class="dropdown-item" href="/paginaAdocao">Minhas adoções</a></li>
+                                <li><a class="dropdown-item" href="/minhasAdocoes">Minhas adoções</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown mx-2 li-profile">
@@ -130,10 +130,10 @@
             <th>Nome</th>
             <th>Idade</th>
             </thead>
-            <th:block th:each="crianca : ${criancasDisponiveis}">
+            <th:block th:each="crianca : ${minhasAdocoesList}">
                 <tbody>
                 <th th:text="${crianca.Name}"></th>
-                <th th:text="${crianca.age}"></th>
+                <th th:text="${crianca.adocaoStatus}"></th>
 
                 </tbody>
             </th:block>

@@ -73,8 +73,7 @@ public class AdocaoService {
         }
     }
 
-    public List<Crianca> minhaAdocao(String idExterno) {
-        Long id = Long.parseLong(idExterno);
+    public List<Crianca> minhaAdocao(Long id) {
         List<Adocao> adocaoArrayList = adocaoRepository.findAllCriancaByUsuarioId(id);
         List<Crianca> criancaList = new ArrayList<>();
               for (int i = 0; i < adocaoArrayList.size(); i++) {

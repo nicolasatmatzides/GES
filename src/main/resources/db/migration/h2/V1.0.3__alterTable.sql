@@ -17,3 +17,6 @@ WHERE id = 1;
 UPDATE crianca
 SET siblings_id = 3
 WHERE id = 2;
+
+insert into adocao (id, adocao_status, crianca_id, usuario_id)
+values(1, 'COMPLETED', 1, 1);
