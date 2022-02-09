@@ -32,6 +32,11 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-maven-plugin</artifactId>
 			<version>3.0</version>
@@ -79,7 +84,7 @@
 				<version>3.0.4</version>
 				<configuration>
 					<processTypes>
-						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* AdocaoApplication</web>
+						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
 					</processTypes>
 				</configuration>
 			</plugin>
