@@ -82,12 +82,26 @@ public class AdocaoService {
         return criancaList;
     }
 
-    //Função usada pelo adm, apenas cancelar processo de adocao
-    public String cancelaAdocao(Long id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
+    public String cancelaAdocao(String id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
 
         Crianca crianca;
         try {
-            crianca =  criancaRepository.findById(id).orElseThrow();
+            crianca =  criancaRepository.findById(Long.parseLong(String.valueOf(id))).orElseThrow();
+            if (crianca.getAdocaoStatus().equals(AdocaoStatus.IN_PROGRESS)){
+                crianca.setAdocaoStatus(AdocaoStatus.EMPTY);
+                criancaRepository.save(crianca);
+            }
+            return "redirect:/minhasAdocoes";
+        }catch (Exception exception){
+            throw new Exception("erro ao adotar criança");
+        }
+    }
+
+    public String reprovarAdocao(String id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
+
+        Crianca crianca;
+        try {
+            crianca =  criancaRepository.findById(Long.parseLong(String.valueOf(id))).orElseThrow();
             if (crianca.getAdocaoStatus().equals(AdocaoStatus.IN_PROGRESS)){
                 crianca.setAdocaoStatus(AdocaoStatus.EMPTY);
                 criancaRepository.save(crianca);

@@ -35,14 +35,19 @@ public class AdocaoController {
         return adocaoService.adoteCriancaInProgress(id, usuarioLogadoSession);
     }
 
-    @PostMapping("/adocaoCompleta")
-    public String adoteCriançaCompleted(@RequestParam(name = "id")Optional<String> id) throws Exception {
+    @PostMapping("/aprovarAdocao")
+    public String aprovarAdocao(@RequestParam(name = "id") String id) throws Exception {
         return adocaoService.concluiAdocao(Long.parseLong(String.valueOf(id)),usuarioLogadoSession);
     }
 
+    @PostMapping("/reprovarAdocao")
+    public String reprovarAdocao(@RequestParam(name = "id") String id) throws Exception {
+        return adocaoService.reprovarAdocao(id, usuarioLogadoSession);
+    }
+
     @PostMapping("/adocaoCancelada")
-    public String adoteCriançaCancela(@RequestParam(name = "id")Optional<String> id) throws Exception {
-        return adocaoService.cancelaAdocao(Long.parseLong(String.valueOf(id)),usuarioLogadoSession);
+    public String adoteCriançaCancela(@RequestParam(name = "id") String id) throws Exception {
+        return adocaoService.cancelaAdocao(id, usuarioLogadoSession);
     }
 
     @GetMapping("/processosAdocaoAdmin")

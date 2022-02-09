@@ -128,22 +128,33 @@
         <table>
             <thead>
             <th>Nome</th>
-            <th>Idade</th>
+            <th>Status de adoção</th>
             </thead>
             <th:block th:each="crianca : ${minhasAdocoesList}">
                 <tbody>
-                <th th:text="${crianca.Name}"></th>
-                <th th:text="${crianca.adocaoStatus}"></th>
-
+                    <th th:text="${crianca.Name}"></th>
+                    <th th:text="${crianca.adocaoStatus}"></th>
+                    <th>
+                        <div>
+                            <form method="POST" action="adocaoCancelada" id="cancelarAdocao">
+                                <button type="submit" th:name="id" th:value="${crianca.id}">Cancelar adoção</button>
+                            </form>
+                        </div>
+                    </th>
+                    <script>
+                        let adocao_status = "[[${crianca.adocaoStatus}]]";
+                        console.log(adocao_status);
+                        if(adocao_status == 'IN_PROGRESS'){
+                            document.getElementById('cancelarAdocao').style.visibility = 'visible';
+                        }else{
+                            document.getElementById('cancelarAdocao').style.visibility = 'hidden';
+                        }
+                    </script>
                 </tbody>
             </th:block>
         </table>
-
-
         <footer>
-
             <img th:src="@{img/logo.png}" alt="logo">
-
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
