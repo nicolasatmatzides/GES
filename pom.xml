@@ -80,6 +80,10 @@
 	<build>
 		<plugins>
 			<plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.1.0</version>
@@ -90,7 +94,7 @@
 				<version>3.0.4</version>
 				<configuration>
 					<processTypes>
-						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* AdocaoApplication</web>
 					</processTypes>
 				</configuration>
 			</plugin>
