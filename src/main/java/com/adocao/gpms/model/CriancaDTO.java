@@ -8,6 +8,8 @@ import lombok.Setter;
 @Setter
 public class CriancaDTO {
 
+    private String id;
+
     private String Name;
 
     private String age;

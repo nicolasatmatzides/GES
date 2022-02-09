@@ -31,14 +31,20 @@ public class CriancaService {
     }
 
     public String editaCrianca(CriancaDTO criancaDTO, Model model){
+        Long id = Long.parseLong(criancaDTO.getId());
         Crianca crianca = new Crianca();
-        crianca.setName(criancaDTO.getName());
-        crianca.setAge(criancaDTO.getAge());
-        crianca.setGender(criancaDTO.getGender());
-        crianca.setAdocaoStatus(criancaDTO.getAdocaoStatus());
-        crianca.setAddress(criancaDTO.getAddress());
-        crianca.setCivilId(crianca.getCivilId());
-        criancaRepository.save(crianca);
+        try {
+
+            crianca = criancaRepository.findById(id).orElseThrow();
+            crianca.setName(criancaDTO.getName());
+            crianca.setAge(criancaDTO.getAge());
+            crianca.setGender(criancaDTO.getGender());
+            crianca.setCivilId(crianca.getCivilId());
+            criancaRepository.save(crianca);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         model.addAttribute("crianca", crianca);
         return "editarCrianca";
     }

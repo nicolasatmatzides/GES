@@ -17,7 +17,7 @@
             <img th:src="@{img/logo.png}" alt="logo" class="d-inline-block align-top">
             <span>Editar</span>
             <th:block th:each="crianca : ${criancaEditar}">
-                <form action="editaCrianca" method="post" id="form-register">
+                <form action="editada" method="post" id="form-register">
                     <div class="form-label">
                         <input type="text" class="form-control" name="nomeCompleto" placeholder="Nome Completo" th:value="${crianca.Name}" required>
                     </div>

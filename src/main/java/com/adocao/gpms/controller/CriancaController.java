@@ -78,7 +78,7 @@ public class CriancaController {
         return "redirect:/loginAdm";
     }
 
-    @PostMapping("/paginaEditar")
+    @GetMapping("/paginaEditar")
     public String editarCrianca(@RequestParam("id") String id, Model model){
         System.out.println(id);
         Crianca crianca = criancaService.infoCrianca(Long.parseLong(String.valueOf(id)));
@@ -86,20 +86,19 @@ public class CriancaController {
         return "adm/editaCrianca.html";
     }
 
-    @PostMapping("/editaCrianca")
+    @PostMapping("/editada")
     public String editaCrianca(Model model,
-                                  @RequestParam("id") String id,
+                                  @RequestParam(name = "id")Optional<String> id,
                                   @RequestParam(name = "nomeCompleto") Optional<String> nome,
                                   @RequestParam(name = "idade") Optional<String> idade,
                                   @RequestParam(name = "genero") Optional<String> genero,
-                                  @RequestParam(name = "endereco") Optional<String> endereco,
-                                  @RequestParam(name = "status") Optional<AdocaoStatus> adocaoStatus){
+                                  @RequestParam(name = "endereco") Optional<String> endereco){
         CriancaDTO crianca = new CriancaDTO();
+        id.ifPresent(crianca::setId);
         nome.ifPresent(crianca::setName);
         idade.ifPresent(crianca::setAge);
         genero.ifPresent(crianca::setGender);
         endereco.ifPresent(crianca::setAddress);
-        adocaoStatus.ifPresent(crianca::setAdocaoStatus);
         criancaService.editaCrianca(crianca, model);
         return "redirect:/loginAdm";
     }

@@ -73,7 +73,7 @@
                         <h5 class="card-title" th:text="${crianca.Name}"></h5>
                         <p class="card-text" th:text="${crianca.age}"></p>
                         <div class="form-buttons">
-                            <form method="POST" action="/paginaEditar">
+                            <form method="GET" action="/paginaEditar">
                                 <button type="submit" th:name="id" th:value="${crianca.id}">Editar</button>
                             </form>
                             <form method="POST" action="/deletaCrianca">
