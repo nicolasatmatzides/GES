@@ -4,6 +4,7 @@ import com.adocao.gpms.entity.Adocao;
 import com.adocao.gpms.entity.Crianca;
 import com.adocao.gpms.entity.Usuario;
 import com.adocao.gpms.model.AdocaoStatus;
+import com.adocao.gpms.model.CriancaDTO;
 import com.adocao.gpms.repository.AdocaoRepository;
 import com.adocao.gpms.repository.CriancaRepository;
 import com.adocao.gpms.repository.UsuarioRepository;
@@ -11,6 +12,7 @@ import com.adocao.gpms.security.UsuarioLogadoSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -69,5 +71,15 @@ public class AdocaoService {
         }catch (Exception exception){
             throw new Exception("erro ao adotar criança");
         }
+    }
+
+    public List<Crianca> minhaAdocao(String idExterno) {
+        Long id = Long.parseLong(idExterno);
+        List<Adocao> adocaoArrayList = adocaoRepository.findAllCriancaByUsuarioId(id);
+        List<Crianca> criancaList = new ArrayList<>();
+              for (int i = 0; i < adocaoArrayList.size(); i++) {
+                  criancaList.add(adocaoArrayList.get(i).getCrianca());
+              }
+        return criancaList;
     }
 }

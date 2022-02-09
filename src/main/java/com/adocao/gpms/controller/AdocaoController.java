@@ -1,6 +1,9 @@
 package com.adocao.gpms.controller;
 
+import com.adocao.gpms.entity.Adocao;
 import com.adocao.gpms.entity.Crianca;
+import com.adocao.gpms.model.AdocaoDto;
+import com.adocao.gpms.model.CriancaDTO;
 import com.adocao.gpms.security.UsuarioLogadoSession;
 import com.adocao.gpms.service.AdocaoService;
 import com.adocao.gpms.service.CriancaService;
@@ -52,4 +55,12 @@ public class AdocaoController {
         return "user/minhasAdocoes.html";
     }
 
+    @GetMapping("/minhaadocao")
+    public String minhaAdocao(Model model,
+                              @RequestParam(name = "id")Optional<String> id){
+        AdocaoDto adocao = new AdocaoDto();
+        id.ifPresent(adocao::setId);
+        adocaoService.minhaAdocao(adocao.getId());
+        return "user/minhasAdocoes.html";
+    }
 }
