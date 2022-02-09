@@ -30,13 +30,13 @@ public class AdocaoService {
     private UsuarioRepository usuarioRepository;
 
     //Função a ser chamada pelo usuário
-    public String adoteCriancaInProgress(Long id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
+    public String adoteCriancaInProgress(String id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
         Usuario usuario;
         Adocao adocao = new Adocao();
         Crianca crianca;
         usuario = usuarioRepository.findById(usuarioLogadoSession.getId()).orElseThrow();
         try {
-            crianca =  criancaRepository.findById(id).orElseThrow();
+            crianca =  criancaRepository.findById(Long.parseLong(String.valueOf(id))).orElseThrow();
             if (crianca.getAdocaoStatus().equals(AdocaoStatus.EMPTY)){
                 adocao.setCrianca(crianca);
                 adocao.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
@@ -45,7 +45,7 @@ public class AdocaoService {
                 criancaRepository.save(crianca);
                 adocaoRepository.save(adocao);
             }
-            return "redirect:/paginaAdocao";
+            return "redirect:/minhasAdocoes";
         }catch (Exception exception){
             throw new Exception("erro ao adotar criança");
         }

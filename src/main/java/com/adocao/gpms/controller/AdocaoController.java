@@ -31,8 +31,8 @@ public class AdocaoController {
     private CriancaService criancaService;
 
     @PostMapping("/crianca-adotar")
-    public String adoteCriançaEmpty(@RequestParam(name = "id")Optional<String> id) throws Exception {
-        return adocaoService.adoteCriancaInProgress(Long.parseLong(String.valueOf(id)), usuarioLogadoSession);
+    public String adoteCriançaEmpty(@RequestParam(name = "id") String id) throws Exception {
+        return adocaoService.adoteCriancaInProgress(id, usuarioLogadoSession);
     }
 
     @PostMapping("/adocaoCompleta")
