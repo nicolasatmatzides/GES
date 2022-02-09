@@ -30,6 +30,39 @@ public class CriancaService {
        return "cadastroCrianca";
     }
 
+    public String editaCrianca(CriancaDTO criancaDTO, Model model){
+        Long id = Long.parseLong(criancaDTO.getId());
+        Crianca crianca = new Crianca();
+        try {
+
+            crianca = criancaRepository.findById(id).orElseThrow();
+            crianca.setName(criancaDTO.getName());
+            crianca.setAge(criancaDTO.getAge());
+            crianca.setGender(criancaDTO.getGender());
+            crianca.setCivilId(crianca.getCivilId());
+            criancaRepository.save(crianca);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        model.addAttribute("crianca", crianca);
+        return "editarCrianca";
+    }
+
+    public Crianca infoCrianca(Long id){
+        Crianca crianca = criancaRepository.findById(id).orElseThrow();
+        return crianca;
+    }
+
+    public void excluiCrianca(Long id){
+        try{
+        Crianca crianca  = criancaRepository.findById(id).orElseThrow();
+        criancaRepository.delete(crianca);
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
+    }
+
     public List<Crianca> listaCriancaDisponiveis() {
         List<Crianca> criancaList = new ArrayList<>();
         try {

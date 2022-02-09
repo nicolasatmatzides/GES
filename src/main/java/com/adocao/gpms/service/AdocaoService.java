@@ -4,6 +4,7 @@ import com.adocao.gpms.entity.Adocao;
 import com.adocao.gpms.entity.Crianca;
 import com.adocao.gpms.entity.Usuario;
 import com.adocao.gpms.model.AdocaoStatus;
+import com.adocao.gpms.model.CriancaDTO;
 import com.adocao.gpms.repository.AdocaoRepository;
 import com.adocao.gpms.repository.CriancaRepository;
 import com.adocao.gpms.repository.UsuarioRepository;
@@ -11,10 +12,13 @@ import com.adocao.gpms.security.UsuarioLogadoSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class AdocaoService {
+    @Autowired
+    private LoginService loginService;
 
     @Autowired
     private AdocaoRepository adocaoRepository;
@@ -26,19 +30,22 @@ public class AdocaoService {
     private UsuarioRepository usuarioRepository;
 
     //Função a ser chamada pelo usuário
-    public String adoteCriancaInProgress(Long id) throws Exception {
+    public String adoteCriancaInProgress(String id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
+        Usuario usuario;
         Adocao adocao = new Adocao();
         Crianca crianca;
+        usuario = usuarioRepository.findById(usuarioLogadoSession.getId()).orElseThrow();
         try {
-            crianca =  criancaRepository.findById(id).orElseThrow();
+            crianca =  criancaRepository.findById(Long.parseLong(String.valueOf(id))).orElseThrow();
             if (crianca.getAdocaoStatus().equals(AdocaoStatus.EMPTY)){
                 adocao.setCrianca(crianca);
                 adocao.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
                 crianca.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
-                adocaoRepository.save(adocao);
+                adocao.setUsuario(usuario);
                 criancaRepository.save(crianca);
+                adocaoRepository.save(adocao);
             }
-            return "redirect:/paginaAdocao";
+            return "redirect:/minhasAdocoes";
         }catch (Exception exception){
             throw new Exception("erro ao adotar criança");
         }
@@ -61,6 +68,45 @@ public class AdocaoService {
                 criancaRepository.save(crianca);
             }
                 return "redirect:/processosAdocaoAdmin";
+        }catch (Exception exception){
+            throw new Exception("erro ao adotar criança");
+        }
+    }
+
+    public List<Crianca> minhaAdocao(Long id) {
+        List<Adocao> adocaoArrayList = adocaoRepository.findAllCriancaByUsuarioId(id);
+        List<Crianca> criancaList = new ArrayList<>();
+              for (int i = 0; i < adocaoArrayList.size(); i++) {
+                  criancaList.add(adocaoArrayList.get(i).getCrianca());
+              }
+        return criancaList;
+    }
+
+    public String cancelaAdocao(String id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
+
+        Crianca crianca;
+        try {
+            crianca =  criancaRepository.findById(Long.parseLong(String.valueOf(id))).orElseThrow();
+            if (crianca.getAdocaoStatus().equals(AdocaoStatus.IN_PROGRESS)){
+                crianca.setAdocaoStatus(AdocaoStatus.EMPTY);
+                criancaRepository.save(crianca);
+            }
+            return "redirect:/minhasAdocoes";
+        }catch (Exception exception){
+            throw new Exception("erro ao adotar criança");
+        }
+    }
+
+    public String reprovarAdocao(String id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
+
+        Crianca crianca;
+        try {
+            crianca =  criancaRepository.findById(Long.parseLong(String.valueOf(id))).orElseThrow();
+            if (crianca.getAdocaoStatus().equals(AdocaoStatus.IN_PROGRESS)){
+                crianca.setAdocaoStatus(AdocaoStatus.EMPTY);
+                criancaRepository.save(crianca);
+            }
+            return "redirect:/processosAdocaoAdmin";
         }catch (Exception exception){
             throw new Exception("erro ao adotar criança");
         }

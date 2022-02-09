@@ -1,6 +1,9 @@
 package com.adocao.gpms.controller;
 
+import com.adocao.gpms.entity.Adocao;
 import com.adocao.gpms.entity.Crianca;
+import com.adocao.gpms.model.AdocaoDto;
+import com.adocao.gpms.model.CriancaDTO;
 import com.adocao.gpms.security.UsuarioLogadoSession;
 import com.adocao.gpms.service.AdocaoService;
 import com.adocao.gpms.service.CriancaService;
@@ -15,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@Controller()
 public class AdocaoController {
 
     @Autowired
@@ -28,13 +31,23 @@ public class AdocaoController {
     private CriancaService criancaService;
 
     @PostMapping("/crianca-adotar")
-    public String adoteCriançaEmpty(@RequestParam(name = "id")Optional<String> id) throws Exception {
-        return adocaoService.adoteCriancaInProgress(Long.parseLong(String.valueOf(id)));
+    public String adoteCriançaEmpty(@RequestParam(name = "id") String id) throws Exception {
+        return adocaoService.adoteCriancaInProgress(id, usuarioLogadoSession);
     }
 
-    @PostMapping("/adocaoCompleta")
-    public String adoteCriançaCompleted(@RequestParam(name = "id")Optional<String> id) throws Exception {
+    @PostMapping("/aprovarAdocao")
+    public String aprovarAdocao(@RequestParam(name = "id") String id) throws Exception {
         return adocaoService.concluiAdocao(Long.parseLong(String.valueOf(id)),usuarioLogadoSession);
+    }
+
+    @PostMapping("/reprovarAdocao")
+    public String reprovarAdocao(@RequestParam(name = "id") String id) throws Exception {
+        return adocaoService.reprovarAdocao(id, usuarioLogadoSession);
+    }
+
+    @PostMapping("/adocaoCancelada")
+    public String adoteCriançaCancela(@RequestParam(name = "id") String id) throws Exception {
+        return adocaoService.cancelaAdocao(id, usuarioLogadoSession);
     }
 
     @GetMapping("/processosAdocaoAdmin")
@@ -52,4 +65,10 @@ public class AdocaoController {
         return "user/minhasAdocoes.html";
     }
 
+    @GetMapping("/minhasAdocoes")
+    public String minhaAdocao(Model model){
+        List<Crianca> criancaList = adocaoService.minhaAdocao(usuarioLogadoSession.getId());
+        model.addAttribute("minhasAdocoesList", criancaList);
+        return "user/minhasAdocoes.html";
+    }
 }

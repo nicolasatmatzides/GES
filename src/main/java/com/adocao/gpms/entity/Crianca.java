@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
 @Getter
@@ -31,6 +32,9 @@ public class Crianca {
 
     @Column
     private String CivilId;
+
+    @ManyToOne
+    private Siblings siblings;
 
     @Column
     private AdocaoStatus adocaoStatus;

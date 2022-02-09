@@ -159,6 +159,7 @@ table{
     margin: 0 auto;
     padding-bottom: 60px;
     background-size: 100% auto;
+    text-align: center;
 }
 table thead, table tbody{
     padding: 10px 20px;
@@ -170,9 +171,22 @@ table thead{
 }
 
 table th{
-    width: 500px;
+    width: 380px;
+    margin: 10px 30px;
     padding: 20px;
     letter-spacing: 2px;
+}
+
+table button{
+    color: #FFFFFF;
+    background-color: #FF6243;
+    outline: none !important;
+    box-shadow: none !important;
+    border: solid 1px #FF6243;
+    width: 150px;
+    border-radius: 7px;
+    float: right;
+    margin-right: 100px;
 }
 
 footer {

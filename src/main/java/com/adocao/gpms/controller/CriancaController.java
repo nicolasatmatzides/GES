@@ -1,6 +1,7 @@
 package com.adocao.gpms.controller;
 
 import com.adocao.gpms.entity.Crianca;
+import com.adocao.gpms.model.AdocaoStatus;
 import com.adocao.gpms.model.CriancaDTO;
 import com.adocao.gpms.security.UsuarioLogadoSession;
 import com.adocao.gpms.service.CriancaService;
@@ -8,10 +9,7 @@ import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,11 +28,6 @@ public class CriancaController {
 
     @GetMapping("crianca/excluir")
     public String excluirCrianca(){
-        return "redirect:/loginAdm";
-    }
-
-    @GetMapping("crianca/editar")
-    public String editarCrianca(){
         return "redirect:/loginAdm";
     }
 
@@ -78,6 +71,36 @@ public class CriancaController {
         criancaService.cadastraCrianca(crianca, model);
         return "redirect:/loginAdm";
     }
+    @PostMapping("/deletaCrianca")
+    public String Deleta(@RequestParam("id") String id){
+        System.out.println(id);
+        criancaService.excluiCrianca(Long.parseLong(String.valueOf(id)));
+        return "redirect:/loginAdm";
+    }
 
+    @GetMapping("/paginaEditar")
+    public String editarCrianca(@RequestParam("id") String id, Model model){
+        System.out.println(id);
+        Crianca crianca = criancaService.infoCrianca(Long.parseLong(String.valueOf(id)));
+        model.addAttribute("criancaEditar", crianca);
+        return "adm/editaCrianca.html";
+    }
+
+    @PostMapping("/editada")
+    public String editaCrianca(Model model,
+                                  @RequestParam(name = "id")Optional<String> id,
+                                  @RequestParam(name = "nomeCompleto") Optional<String> nome,
+                                  @RequestParam(name = "idade") Optional<String> idade,
+                                  @RequestParam(name = "genero") Optional<String> genero,
+                                  @RequestParam(name = "endereco") Optional<String> endereco){
+        CriancaDTO crianca = new CriancaDTO();
+        id.ifPresent(crianca::setId);
+        nome.ifPresent(crianca::setName);
+        idade.ifPresent(crianca::setAge);
+        genero.ifPresent(crianca::setGender);
+        endereco.ifPresent(crianca::setAddress);
+        criancaService.editaCrianca(crianca, model);
+        return "redirect:/loginAdm";
+    }
 
 }
