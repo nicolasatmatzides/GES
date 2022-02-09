@@ -81,4 +81,20 @@ public class AdocaoService {
               }
         return criancaList;
     }
+
+    //Função usada pelo adm, apenas cancelar processo de adocao
+    public String cancelaAdocao(Long id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
+
+        Crianca crianca;
+        try {
+            crianca =  criancaRepository.findById(id).orElseThrow();
+            if (crianca.getAdocaoStatus().equals(AdocaoStatus.IN_PROGRESS)){
+                crianca.setAdocaoStatus(AdocaoStatus.EMPTY);
+                criancaRepository.save(crianca);
+            }
+            return "redirect:/processosAdocaoAdmin";
+        }catch (Exception exception){
+            throw new Exception("erro ao adotar criança");
+        }
+    }
 }

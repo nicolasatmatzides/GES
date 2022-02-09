@@ -40,6 +40,11 @@ public class AdocaoController {
         return adocaoService.concluiAdocao(Long.parseLong(String.valueOf(id)),usuarioLogadoSession);
     }
 
+    @PostMapping("/adocaoCancelada")
+    public String adoteCriançaCancela(@RequestParam(name = "id")Optional<String> id) throws Exception {
+        return adocaoService.cancelaAdocao(Long.parseLong(String.valueOf(id)),usuarioLogadoSession);
+    }
+
     @GetMapping("/processosAdocaoAdmin")
     public String processosAdocaoAdmin(Model model){
         List<Crianca> criancaList = criancaService.listarCriancaInProgress();
