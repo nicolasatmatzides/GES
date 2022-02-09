@@ -31,14 +31,6 @@ public class CriancaController {
         return "redirect:/loginAdm";
     }
 
-    @PostMapping("/paginaEditar")
-    public String editarCrianca(@RequestParam("id") String id, Model model){
-        System.out.println(id);
-        CriancaDTO crianca = criancaService.infoCrianca(Long.parseLong(String.valueOf(id)));
-        model.addAttribute("criancaEditar", crianca);
-        return "adm/editaCrianca.html";
-    }
-
     @GetMapping("/busca")
     public String busca(Model model,
                         @RequestParam(name = "idade") String idade,
@@ -86,25 +78,28 @@ public class CriancaController {
         return "redirect:/loginAdm";
     }
 
+    @PostMapping("/paginaEditar")
+    public String editarCrianca(@RequestParam("id") String id, Model model){
+        System.out.println(id);
+        Crianca crianca = criancaService.infoCrianca(Long.parseLong(String.valueOf(id)));
+        model.addAttribute("criancaEditar", crianca);
+        return "adm/editaCrianca.html";
+    }
+
     @PostMapping("/editaCrianca")
     public String editaCrianca(Model model,
+                                  @RequestParam("id") String id,
                                   @RequestParam(name = "nomeCompleto") Optional<String> nome,
                                   @RequestParam(name = "idade") Optional<String> idade,
                                   @RequestParam(name = "genero") Optional<String> genero,
-                                  @RequestParam(name = "cpf") Optional<String> cpf,
                                   @RequestParam(name = "endereco") Optional<String> endereco,
-                                  @RequestParam(name = "status") Optional<AdocaoStatus> adocaoStatus,
-                                  @RequestParam(name = "nomeCompletoMae") Optional<String> nomeCompletoMae,
-                                  @RequestParam(name = "nomeCompletoPai") Optional<String> nomeCompletoPai){
+                                  @RequestParam(name = "status") Optional<AdocaoStatus> adocaoStatus){
         CriancaDTO crianca = new CriancaDTO();
         nome.ifPresent(crianca::setName);
         idade.ifPresent(crianca::setAge);
         genero.ifPresent(crianca::setGender);
-        cpf.ifPresent(crianca::setCPF);
         endereco.ifPresent(crianca::setAddress);
         adocaoStatus.ifPresent(crianca::setAdocaoStatus);
-        nomeCompletoMae.ifPresent(crianca::setNomeCompletoMae);
-        nomeCompletoPai.ifPresent(crianca::setNomeCompletoPai);
         criancaService.editaCrianca(crianca, model);
         return "redirect:/loginAdm";
     }

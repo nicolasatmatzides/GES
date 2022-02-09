@@ -7,7 +7,7 @@
     <base href="/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link th:href="@{css/register.css}" rel="stylesheet" />
-    <title>Cadastrar criança</title>
+    <title>Editar criança</title>
 </head>
 <body>
 
@@ -15,10 +15,9 @@
     <div id="background-register">
         <div id="container-register">
             <img th:src="@{img/logo.png}" alt="logo" class="d-inline-block align-top">
-            <span>Cadastrar</span>
+            <span>Editar</span>
             <th:block th:each="crianca : ${criancaEditar}">
                 <form action="editaCrianca" method="post" id="form-register">
-
                     <div class="form-label">
                         <input type="text" class="form-control" name="nomeCompleto" placeholder="Nome Completo" th:value="${crianca.Name}" required>
                     </div>
@@ -32,25 +31,14 @@
                     </div>
 
                     <div class="form-label">
-                        <input type="text" class="form-control" name="cpf" placeholder="CPF" th:value="${crianca.CPF}" required>
-                    </div>
-
-                    <div class="form-label">
                         <input type="text" class="form-control" name="endereco" placeholder="Endereço" th:value="${crianca.Address}" required>
                     </div>
 
                     <div class="form-label">
-                        <input type="text" class="form-control" name="nomeCompletoMae" placeholder="Nome Completo da mãe" th:value="${crianca.NomeCompletoMae}" required>
-                    </div>
-
-                    <div class="form-label">
-                        <input type="text" class="form-control" name="nomeCompletoPai" placeholder="Nome Completo do pai" th:value="${crianca.NomeCompletoPai}" required>
-                    </div>
-
-                    <div class="form-label">
-                        <input type="submit" class="form-control" value="Editar dados">
+                        <button type="submit" th:name="id" th:value="${crianca.id}" class="form-control">Editar dados</button>
                     </div>
                 </form>
+
             </th:block>
         </div>
     </div>

@@ -36,7 +36,7 @@
     margin: 5px 0;
 }
 
-#container-register form input[type=submit] {
+#container-register form input[type=submit], #container-register form button[type=submit]{
     color: #FFFFFF;
     background-color: #FF6243;
 }

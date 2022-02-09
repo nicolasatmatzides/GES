@@ -21,6 +21,8 @@ insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
 values(9, 'rua X', 8,'808984','FEMININO','Laís', 'IN_PROGRESS');
 insert into crianca  (id, address, age, civil_id, gender, name, adocao_status)
 values(10, 'rua X', 8,'808984','FEMININO','Pedro', 'IN_PROGRESS');
+
+
 insert into duvida (id, duvida, resposta, usuario_id)
 values(1, 'essa é a minha duvida', 'essa é minha resposta', 1);
 insert into duvida (id, duvida, resposta, usuario_id)
