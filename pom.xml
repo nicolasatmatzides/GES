@@ -76,10 +76,10 @@
 			<plugin>
 				<groupId>com.heroku.sdk</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>3.0.3</version>
+				<version>3.0.4</version>
 				<configuration>
 					<processTypes>
-						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+						<web>java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar</web>
 					</processTypes>
 				</configuration>
 			</plugin>
