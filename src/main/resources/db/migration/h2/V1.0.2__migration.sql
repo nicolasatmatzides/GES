@@ -8,8 +8,8 @@ create table siblings (
 
 
 insert into siblings(id, crianca_id)
-values(1,1);
+values(1,6);
 insert into siblings(id, crianca_id)
-values(2,2);
+values(2,5);
 insert into siblings(id, crianca_id)
 values(3,3);
