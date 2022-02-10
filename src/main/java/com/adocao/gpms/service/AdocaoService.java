@@ -50,7 +50,7 @@ public class AdocaoService {
                 criancaRepository.save(crianca);
                 adocaoRepository.save(adocao);
             }
-            adotaIrmaoSePossível(crianca, id);
+            adotaIrmaoSePossível(crianca, usuarioLogadoSession);
 
             return "redirect:/minhasAdocoes";
         } catch (Exception exception) {
@@ -121,18 +121,20 @@ public class AdocaoService {
         }
     }
 
-    public void adotaIrmaoSePossível(Crianca crianca, String idCrianca) {
-        List<Siblings> siblingsArrayList;
-        if (Objects.nonNull(crianca.getSiblings())) {
-            Crianca irmaoVaiSerAdotado;
-            Adocao adocaoDoIrmao = new Adocao();
-            siblingsArrayList = siblingsRepository.findAllSiblingsByCriancaId(Long.parseLong(idCrianca));
-            adocaoDoIrmao.setCrianca(siblingsArrayList.get(1).getCrianca());
-            adocaoDoIrmao.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
-            irmaoVaiSerAdotado = siblingsArrayList.get(1).getCrianca();
-            irmaoVaiSerAdotado.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
-            criancaRepository.save(irmaoVaiSerAdotado);
-            adocaoRepository.save(adocaoDoIrmao);
+    public void adotaIrmaoSePossível(Crianca crianca, UsuarioLogadoSession usuarioLogadoSession) {
+        Usuario usuario;
+        Adocao adocaoIrmao = new Adocao();
+        Crianca irmao;
+        usuario = usuarioRepository.findById(usuarioLogadoSession.getId()).orElseThrow();
+        Long idCrianca = Long.parseLong(String.valueOf(crianca.getSiblings().getCrianca().getId()));
+        irmao = criancaRepository.findById(idCrianca).orElseThrow();
+        if (irmao.getAdocaoStatus().equals(AdocaoStatus.EMPTY)) {
+            adocaoIrmao.setCrianca(irmao);
+            adocaoIrmao.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
+            irmao.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
+            adocaoIrmao.setUsuario(usuario);
+            criancaRepository.save(irmao);
+            adocaoRepository.save(adocaoIrmao);
         }
     }
 }

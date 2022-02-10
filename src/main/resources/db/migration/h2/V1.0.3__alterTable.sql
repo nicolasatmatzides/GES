@@ -8,15 +8,15 @@ alter table crianca
 
 UPDATE crianca
 SET siblings_id = 1
-WHERE id = 5;
-
-UPDATE crianca
-SET siblings_id = 2
 WHERE id = 6;
 
 UPDATE crianca
+SET siblings_id = 2
+WHERE id = 5;
+
+UPDATE crianca
 SET siblings_id = 3
-WHERE id = 7;
+WHERE id = 2;
 
 insert into adocao (id, adocao_status, crianca_id, usuario_id)
 values(1, 'COMPLETED', 1, 1);
