@@ -35,7 +35,7 @@ public class AdocaoService {
     private SiblingsRepository siblingsRepository;
 
     //Função a ser chamada pelo usuário
-    public String adoteCriancaInProgress(String id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
+    public String adoteCriancaComIrmao(String id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
         Usuario usuario;
         Adocao adocao = new Adocao();
         Crianca crianca;
@@ -57,6 +57,31 @@ public class AdocaoService {
             throw new Exception("erro ao adotar criança");
         }
     }
+
+    public String adoteCrianca(String id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
+        Usuario usuario;
+        Adocao adocao = new Adocao();
+        Crianca crianca;
+        usuario = usuarioRepository.findById(usuarioLogadoSession.getId()).orElseThrow();
+        try {
+            crianca = criancaRepository.findById(Long.parseLong(String.valueOf(id))).orElseThrow();
+            if (crianca.getAdocaoStatus().equals(AdocaoStatus.EMPTY)) {
+                adocao.setCrianca(crianca);
+                adocao.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
+                crianca.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
+                adocao.setUsuario(usuario);
+                criancaRepository.save(crianca);
+                adocaoRepository.save(adocao);
+            }
+            if(crianca.getSiblings() != null)
+                adotaIrmaoSePossível(crianca, usuarioLogadoSession);
+
+            return "redirect:/minhasAdocoes";
+        } catch (Exception exception) {
+            throw new Exception("erro ao adotar criança");
+        }
+    }
+
 
     //Função usada pelo adm, apenas passar id da criança
     public String concluiAdocao(Long id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
