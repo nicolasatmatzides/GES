@@ -130,7 +130,7 @@
             <th>Nome</th>
             <th>Status de adoção</th>
             </thead>
-            <th:block th:each="crianca : ${minhasAdocoesList}">
+            <th:block id="emptyAdocao" th:each="crianca : ${minhasAdocoesList}">
                 <tbody>
                     <th th:text="${crianca.Name}"></th>
                     <th th:text="${crianca.adocaoStatus}"></th>

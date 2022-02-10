@@ -8,11 +8,11 @@ alter table crianca
 
 UPDATE crianca
 SET siblings_id = 1
-WHERE id = 1;
+WHERE id = 6;
 
 UPDATE crianca
 SET siblings_id = 2
-WHERE id = 1;
+WHERE id = 5;
 
 UPDATE crianca
 SET siblings_id = 3
