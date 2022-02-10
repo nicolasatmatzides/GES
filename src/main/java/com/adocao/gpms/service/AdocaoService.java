@@ -127,16 +127,13 @@ public class AdocaoService {
             Crianca irmaoVaiSerAdotado;
             Adocao adocaoDoIrmao = new Adocao();
             siblingsArrayList = siblingsRepository.findAllSiblingsByCriancaId(Long.parseLong(idCrianca));
-            for (int i = 0; i < siblingsArrayList.size(); i++) {
-                if (siblingsArrayList.get(i).getCrianca().getAdocaoStatus().equals(AdocaoStatus.EMPTY)) {
-                    adocaoDoIrmao.setCrianca(siblingsArrayList.get(i).getCrianca());
-                    adocaoDoIrmao.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
-                    irmaoVaiSerAdotado = siblingsArrayList.get(i).getCrianca();
-                    irmaoVaiSerAdotado.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
-                    criancaRepository.save(irmaoVaiSerAdotado);
-                    adocaoRepository.save(adocaoDoIrmao);
-                }
-            }
+            adocaoDoIrmao.setCrianca(siblingsArrayList.get(1).getCrianca());
+            adocaoDoIrmao.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
+            irmaoVaiSerAdotado = siblingsArrayList.get(1).getCrianca();
+            irmaoVaiSerAdotado.setAdocaoStatus(AdocaoStatus.IN_PROGRESS);
+            criancaRepository.save(irmaoVaiSerAdotado);
+            adocaoRepository.save(adocaoDoIrmao);
         }
     }
 }
+
