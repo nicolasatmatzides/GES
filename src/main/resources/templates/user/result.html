@@ -133,6 +133,15 @@
                         <form method="POST" action="crianca-adotar">
                             <button type="submit" th:name="id" th:value="${crianca.id}">Adote</button>
                         </form>
+
+                        <script>
+                        console.log([[${crianca.siblings}]]);
+                            if("[[${crianca.siblings}]]" != null){
+                                console.log("[[${crianca.siblings}]]");
+                            }else{
+                                console.log("lol");
+                            }
+                        </script>
                     </div>
                 </div>
             </th:block>

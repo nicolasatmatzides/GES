@@ -76,9 +76,9 @@ public class AdocaoService {
     public List<Crianca> minhaAdocao(Long id) {
         List<Adocao> adocaoArrayList = adocaoRepository.findAllCriancaByUsuarioId(id);
         List<Crianca> criancaList = new ArrayList<>();
-              for (int i = 0; i < adocaoArrayList.size(); i++) {
-                  criancaList.add(adocaoArrayList.get(i).getCrianca());
-              }
+          for (int i = 0; i < adocaoArrayList.size(); i++) {
+              criancaList.add(adocaoArrayList.get(i).getCrianca());
+          }
         return criancaList;
     }
 
@@ -86,7 +86,7 @@ public class AdocaoService {
 
         Crianca crianca;
         try {
-            crianca =  criancaRepository.findById(Long.parseLong(String.valueOf(id))).orElseThrow();
+            crianca = criancaRepository.findById(Long.parseLong(String.valueOf(id))).orElseThrow();
             if (crianca.getAdocaoStatus().equals(AdocaoStatus.IN_PROGRESS)){
                 crianca.setAdocaoStatus(AdocaoStatus.EMPTY);
                 criancaRepository.save(crianca);
