@@ -36,3 +36,4 @@ build/
 .vscode/
 
 
+/src/main/resources/db/migration/h2/
