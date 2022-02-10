@@ -135,21 +135,19 @@
                     <th th:text="${crianca.Name}"></th>
                     <th th:text="${crianca.adocaoStatus}"></th>
                     <th>
-                        <div hidden="hidden">
-                            <form method="POST" action="adocaoCancelada" id="cancelarAdocao">
-                                <button type="submit" th:name="id" th:value="${crianca.id}">Cancelar adoção</button>
+                        <div>
+                            <form method="POST" action="adocaoCancelada">
+                                <button id="cancelarAdocao" type="submit" th:name="id" th:value="${crianca.id}">Cancelar adoção</button>
                             </form>
+                            <script>
+                                if("[[${crianca.adocaoStatus}]]" === 'IN_PROGRESS'){
+                                    document.getElementById('cancelarAdocao').setAttribute('style', 'visibility:visible');
+                                }else{
+                                    document.getElementById('cancelarAdocao').setAttribute('style', 'visibility:hidden');
+                                }
+                            </script>
                         </div>
                     </th>
-                    <script>
-                        let adocao_status = "[[${crianca.adocaoStatus}]]";
-                        console.log(adocao_status);
-                        if(adocao_status == 'IN_PROGRESS'){
-                            document.getElementById('cancelarAdocao').style.visibility = 'visible';
-                        }else{
-                            document.getElementById('cancelarAdocao').style.visibility = 'hidden';
-                        }
-                    </script>
                 </tbody>
             </th:block>
         </table>
