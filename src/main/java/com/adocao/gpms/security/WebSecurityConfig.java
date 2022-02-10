@@ -25,6 +25,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+//Configuração que reforça a utilização do HTTPS na aplicação mesmo em requisições que utilizam HTTP
+        http.requiresChannel()
+                .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
+                .requiresSecure();
+
         http.authorizeRequests()
                 .antMatchers("/loginAdm").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET,"/admin").hasRole("ADMIN")
