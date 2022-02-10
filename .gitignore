@@ -34,3 +34,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Arquivos que não devem ir pra main/heroku por tratar de configurações de desenvolvimeto local
+pom.xml
+/src/main/resources/db/migration/h2/
+application-local.properties
+.gitignore
