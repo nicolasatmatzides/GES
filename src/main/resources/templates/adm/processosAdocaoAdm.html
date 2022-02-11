@@ -79,7 +79,7 @@
                         <th th:text="${crianca.gender}"></th>
                         <th class="buttons">
                             <form method="POST" action="aprovarAdocao">
-                                <button type="submit" th:name="id" th:value="${crianca.id}">Aprove</button>
+                                <button type="submit" th:name="id" th:value="${crianca.id}" >Aprove</button>
                             </form>
                             <form method="POST" action="reprovarAdocao">
                                 <button type="submit" th:name="id" th:value="${crianca.id}">Reprove</button>
