@@ -72,7 +72,7 @@
     </div>
     <div class="offcanvas-body">
 
-        <form action="/busca" method="get" id="form-search">
+        <form action="busca" method="get" id="form-search">
 
             <h6>Sexo</h6>
 
@@ -128,8 +128,8 @@
             <th:block th:each="crianca : ${criancas}">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title" th:text="${crianca.Name}"></h5>
-                        <p class="card-text" th:text="${crianca.Age}"></p>
+                        <h5 class="card-title" th:text="${crianca.name}"></h5>
+                        <p class="card-text" th:text="${crianca.age}"></p>
                         <form method="POST" action="crianca-adotar">
                             <button type="submit" th:name="id" th:value="${crianca.id}">Adote</button>
                         </form>
