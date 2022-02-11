@@ -58,7 +58,7 @@ section button{
 table{
     margin: 0 auto;
     margin-bottom: 100px;
-    background-size: 100% auto;
+    background-size: 90% auto;
 }
 table thead, table tbody{
     padding: 10px 20px;
@@ -74,7 +74,7 @@ tbody th{
 }
 
 table th{
-    width: 500px;
+    width: 400px;
     padding: 20px;
     letter-spacing: 2px;
 }

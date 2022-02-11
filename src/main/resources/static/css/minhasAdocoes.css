@@ -188,6 +188,10 @@ table button{
     float: right;
     margin-right: 100px;
 }
+.containerBody{
+    padding-bottom: 100px;
+}
+
 
 footer {
     position: fixed;
