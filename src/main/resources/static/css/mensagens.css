@@ -81,6 +81,9 @@ section .cards .card {
     border-bottom: 1px solid #FF6243;
     margin-bottom: 40px;
 }
+.containerBody{
+    padding-bottom: 100px;
+}
 
 footer {
     position: fixed;

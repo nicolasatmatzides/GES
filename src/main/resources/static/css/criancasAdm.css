@@ -104,6 +104,11 @@ section .cards .card .card-footer span {
     border-radius: 7px;
 }
 
+.containerBody{
+    padding-bottom: 100px;
+}
+
+
 .footer {
     position: fixed;
     left: 0;

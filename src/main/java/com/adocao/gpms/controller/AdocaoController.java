@@ -2,6 +2,7 @@ package com.adocao.gpms.controller;
 
 import com.adocao.gpms.entity.Adocao;
 import com.adocao.gpms.entity.Crianca;
+import com.adocao.gpms.entity.Siblings;
 import com.adocao.gpms.model.AdocaoDto;
 import com.adocao.gpms.model.CriancaDTO;
 import com.adocao.gpms.security.UsuarioLogadoSession;
@@ -32,7 +33,7 @@ public class AdocaoController {
 
     @PostMapping("/crianca-adotar")
     public String adoteCriançaEmpty(@RequestParam(name = "id") String id) throws Exception {
-        return adocaoService.adoteCriancaInProgress(id, usuarioLogadoSession);
+        return adocaoService.adoteCrianca(id, usuarioLogadoSession);
     }
 
     @PostMapping("/aprovarAdocao")

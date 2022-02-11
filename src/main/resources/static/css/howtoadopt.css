@@ -117,6 +117,12 @@ section .cards .card .card-body h5 {
     text-align: center;
 }
 
+section .cards .card .card-body p {
+    font-size: 16px;
+    color: #555555;
+    text-align: center;
+}
+
 section .cards .card .card-body * {
     margin: 10px;
 }
@@ -157,6 +163,10 @@ section #form-contact textarea:focus {
     outline: none !important;
     box-shadow: none;
     border: 2px solid #FF6243;
+}
+
+.containerBody{
+    padding-bottom: 100px;
 }
 
 footer {
