@@ -73,7 +73,7 @@
     </div>
     <div class="offcanvas-body">
 
-        <form action="busca" method="get" id="form-search">
+        <form method="GET" action="/busca">
 
             <h6>Sexo</h6>
 
@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="sexo" id="sexo2" value="FEMININO" checked>
+                    <input class="form-check-input" type="radio" name="sexo" id="sexo2" value="FEMININO">
                     <label class="form-check-label" for="sexo2">
                         Feminino
                     </label>
@@ -105,7 +105,7 @@
             <h6>Idade máxima</h6>
 
             <div class="mb-3">
-                <input type="number" class="form-control" min="0" name="idade" value="0" required>
+                <input type="text" class="form-control" min="0" name="idade" value="0" required>
             </div>
 
             <!--                <h6>Quantidade máxima de irmãos*</h6>-->
@@ -115,45 +115,25 @@
             <!--                    <div id="max-irmaos" class="form-text">*Ao adotar uma criança com irmão, é obrigatório aceitá-los na adoção.</div>-->
             <!--                </div>-->
 
-            <button type="submit" class="btn">Filtrar</button>
+            <button class="busca" type="submit">Filtrar</button>
 
         </form>
 
     </div>
 </div>
-<div class="container" id="container">
+<table>
+    <thead>
+    <th>Nome</th>
+    <th>Idada</th>
+    </thead>
+    <th:block th:each="crianca : ${criancas}">
+        <tbody>
+        <th th:text="${crianca.name}"></th>
+        <th th:text="${crianca.age}"></th>
+        </tbody>
+    </th:block>
+</table>
 
-    <section>
-        <h4 class="text-center">Resultados de Busca</h4>
-        <div class="cards" id="cards">
-            <th:block th:each="crianca : ${criancas}">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${crianca.Name}"></h5>
-                        <p class="card-text" th:text="${crianca.Age} + ' anos'"></p>
-                        <div id="temIrmao" hidden="hidden">
-                            <p>Essa criança tem irmão.</p>
-                        </div>
-                        <form method="POST" action="crianca-adotar">
-                            <button type="submit" th:name="id" th:value="${crianca.id}"> Adote </button>
-                        </form>
-                        <script>
-                            if("[[${crianca.siblings}]]" != ""){
-                                console.log("[[${crianca.Name}]]");
-                                console.log("cheio");
-                                var elemento_pai = document.querySelector(".card-body");
-                                var elemento = document.createElement('p');
-                                var texto = document.createTextNode("Essa crianca possui irmão ");
-                                elemento.appendChild(texto);
-                                elemento_pai.appendChild(elemento);
-                            }
-                        </script>
-                    </div>
-                </div>
-            </th:block>
-        </div>
-    </section>
-</div>
 
 <footer class="fixed-bottom">
 
