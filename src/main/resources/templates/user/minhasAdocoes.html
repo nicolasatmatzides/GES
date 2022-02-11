@@ -144,7 +144,7 @@
                         <script>
                             let adocao_status = "[[${crianca.adocaoStatus}]]";
                             console.log(adocao_status);
-                            if(adocao_status == 'IN_PROGRESS'){
+                            if(adocao_status === 'IN_PROGRESS'){
                                 document.getElementById('cancelarAdocao').style.visibility = 'visible';
                             }else{
                                 document.getElementById('cancelarAdocao').style.visibility = 'hidden';

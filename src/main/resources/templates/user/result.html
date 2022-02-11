@@ -133,6 +133,17 @@
                         <form method="POST" action="crianca-adotar">
                             <button type="submit" th:name="id" th:value="${crianca.id}">Adote</button>
                         </form>
+                        <script>
+                            if("[[${crianca.siblings}]]" != ""){
+                                console.log("[[${crianca.Name}]]");
+                                console.log("cheio");
+                                var elemento_pai = document.querySelector(".card-body");
+                                var elemento = document.createElement('p');
+                                var texto = document.createTextNode("Essa crianca possui irmão ");
+                                elemento.appendChild(texto);
+                                elemento_pai.appendChild(elemento);
+                            }
+                        </script>
                     </div>
                 </div>
             </th:block>

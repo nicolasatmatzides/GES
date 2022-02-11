@@ -107,12 +107,14 @@ public class AdocaoService {
     }
 
     public String reprovarAdocao(String id, UsuarioLogadoSession usuarioLogadoSession) throws Exception {
-
+        Adocao adocao;
         Crianca crianca;
         try {
+            adocao = adocaoRepository.findAdocaoByCriancaId(Long.parseLong(String.valueOf(id)));
             crianca = criancaRepository.findById(Long.parseLong(String.valueOf(id))).orElseThrow();
             if (crianca.getAdocaoStatus().equals(AdocaoStatus.IN_PROGRESS)) {
                 crianca.setAdocaoStatus(AdocaoStatus.EMPTY);
+                adocaoRepository.delete(adocao);
                 criancaRepository.save(crianca);
             }
             return "redirect:/processosAdocaoAdmin";
