@@ -37,3 +37,7 @@ build/
 
 
 /src/main/resources/db/migration/h2/
+
+
+### Arquivo de conexão com o anco de dados (tentativa)
+src/main/java/com/adocao/gpms/DataConfiguration.java
