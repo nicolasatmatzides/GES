@@ -41,6 +41,6 @@ pom.xml
 /src/main/resources/db/migration/h2/
 application-local.properties
 .gitignore
-
+Procfile
 ### Arquivo de conexão com o anco de dados (tentativa)
 src/main/java/com/adocao/gpms/DataConfiguration.java
