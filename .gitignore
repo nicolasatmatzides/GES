@@ -42,6 +42,3 @@ pom.xml
 application-local.properties
 .gitignore
 C:\Users\mateu\IdeaProjects\GES\Procfile
-
-### Arquivo de conexão com o anco de dados (tentativa)
-src/main/java/com/adocao/gpms/DataConfiguration.java
