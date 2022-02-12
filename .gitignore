@@ -37,3 +37,5 @@ build/
 
 
 /src/main/resources/db/migration/h2/
+application-local.properties
+.gitignore

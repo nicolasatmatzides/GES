@@ -12,4 +12,4 @@ values(1,5);
 insert into siblings(id, crianca_id)
 values(2,6);
 insert into siblings(id, crianca_id)
-values(3,7);
+values(3,2);

@@ -71,7 +71,7 @@
         </div>
         <div class="offcanvas-body">
 
-            <form action="/busca" method="get" id="form-search">
+            <form action="busca" method="get" id="form-search">
 
                 <h6>Sexo</h6>
 
@@ -120,7 +120,7 @@
         </div>
     </div>
 
-        <div class="container">
+        <div class="containerBody">
 
             <!-- steps -->
 
@@ -200,8 +200,25 @@
 
             </section>
 
-            <!-- doubt -->
             <section>
+
+                <h4>Irmãos</h4>
+
+                <div class="cards">
+
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <img th:src="@{img/step-1.png}" class="card-img-top" alt="Irmãos">
+                            <h5 class="card-title d-inline-block" id="irmaos" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-html="true" data-bs-content="RG - CPF">Adoção de irmãos</h5>
+                            <p class="card-title d-inline-block" data-bs-toggle="popover">Os irmão serão sempre adotados juntos para que não se separe a família</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- doubt -->
+            <section class="duvidas">
                 <h4>Dúvidas</h4>
                 <form th:action="duvidaNova" method="post">
                     <div class="mb-3">
@@ -217,7 +234,6 @@
             <img th:src="@{img/logo.png}" alt="logo">
         </footer>
 
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
         <script>

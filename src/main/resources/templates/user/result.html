@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link th:href="@{css/result.css}" rel="stylesheet" />
     <script src="https://unpkg.com/axios@0.21.4/dist/axios.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <title>Adote-me</title>
 </head>
 <body>
@@ -72,7 +73,7 @@
     </div>
     <div class="offcanvas-body">
 
-        <form action="/busca" method="get" id="form-search">
+        <form action="busca" method="get" id="form-search">
 
             <h6>Sexo</h6>
 
@@ -129,17 +130,22 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${crianca.Name}"></h5>
-                        <p class="card-text" th:text="${crianca.Age}"></p>
+                        <p class="card-text" th:text="${crianca.Age} + ' anos'"></p>
+                        <div id="temIrmao" hidden="hidden">
+                            <p>Essa criança tem irmão.</p>
+                        </div>
                         <form method="POST" action="crianca-adotar">
-                            <button type="submit" th:name="id" th:value="${crianca.id}">Adote</button>
+                            <button type="submit" th:name="id" th:value="${crianca.id}"> Adote </button>
                         </form>
-
                         <script>
-                        console.log([[${crianca.siblings}]]);
-                            if("[[${crianca.siblings}]]" != null){
-                                console.log("[[${crianca.siblings}]]");
-                            }else{
-                                console.log("lol");
+                            if("[[${crianca.siblings}]]" != ""){
+                                console.log("[[${crianca.Name}]]");
+                                console.log("cheio");
+                                var elemento_pai = document.querySelector(".card-body");
+                                var elemento = document.createElement('p');
+                                var texto = document.createTextNode("Essa crianca possui irmão ");
+                                elemento.appendChild(texto);
+                                elemento_pai.appendChild(elemento);
                             }
                         </script>
                     </div>

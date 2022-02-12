@@ -155,6 +155,9 @@ section #form-contact textarea:focus {
     border: 2px solid #FF6243;
 }
 
+.containerBody{
+    padding-bottom: 100px;
+}
 
 footer {
     position: fixed;

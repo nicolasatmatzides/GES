@@ -56,36 +56,36 @@
             </div>
         </div>
     </nav>
+    <div class="containerBody">
+        <section class="title">
+            <h4>Crianças</h4>
+        </section>
 
-    <section class="title">
-        <h4>Crianças</h4>
-    </section>
+        <form method="GET" action="crianca/paginaCadastrar">
+            <button class="registrarCrianca" type="submit">Cadastrar criança</button>
+        </form>
 
-    <form method="GET" action="crianca/paginaCadastrar">
-        <button class="registrarCrianca" type="submit">Cadastrar criança</button>
-    </form>
-
-    <section>
-        <div class="cards">
-            <th:block th:each="crianca : ${criancasDisponiveis}">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${crianca.Name}"></h5>
-                        <p class="card-text" th:text="${crianca.age}"></p>
-                        <div class="form-buttons">
-                            <form method="GET" action="/paginaEditar">
-                                <button type="submit" th:name="id" th:value="${crianca.id}">Editar</button>
-                            </form>
-                            <form method="POST" action="/deletaCrianca">
-                                <button type="submit" th:name="id" th:value="${crianca.id}">Excluir</button>
-                            </form>
+        <section>
+            <div class="cards">
+                <th:block th:each="crianca : ${criancasDisponiveis}">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${crianca.Name}"></h5>
+                            <p class="card-text" th:text="${crianca.age}"></p>
+                            <div class="form-buttons">
+                                <form method="GET" action="/paginaEditar">
+                                    <button type="submit" th:name="id" th:value="${crianca.id}">Editar</button>
+                                </form>
+                                <form method="POST" action="/deletaCrianca">
+                                    <button type="submit" th:name="id" th:value="${crianca.id}">Excluir</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </th:block>
-        </div>
-    </section>
-
+                </th:block>
+            </div>
+        </section>
+    </div>
     <footer class="footer navbar-fixed-bottom">
         <img th:src="@{img/logo.png}" alt="logo">
     </footer>
