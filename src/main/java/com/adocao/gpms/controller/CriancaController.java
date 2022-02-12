@@ -40,7 +40,7 @@ public class CriancaController {
 
         model.addAttribute("criancas", criancaList);
 
-        return "user/result";
+        return "user/result.html";
 
     }
 
