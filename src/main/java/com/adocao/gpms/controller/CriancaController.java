@@ -1,15 +1,15 @@
 package com.adocao.gpms.controller;
 
 import com.adocao.gpms.entity.Crianca;
-import com.adocao.gpms.model.AdocaoStatus;
 import com.adocao.gpms.model.CriancaDTO;
 import com.adocao.gpms.security.UsuarioLogadoSession;
 import com.adocao.gpms.service.CriancaService;
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,10 +23,10 @@ public class CriancaController {
     @Autowired
     private CriancaService criancaService;
 
-    @GetMapping("crianca/paginaCadastrar")
+    @GetMapping("/crianca/paginaCadastrar")
     public String cadastraCrianca(){return "adm/cadastroCrianca.html";}
 
-    @GetMapping("crianca/excluir")
+    @GetMapping("/crianca/excluir")
     public String excluirCrianca(){
         return "redirect:/loginAdm";
     }
@@ -51,7 +51,7 @@ public class CriancaController {
         return "user/success.html";
     }
 
-    @PostMapping("cadastroCrianca")
+    @PostMapping("/cadastroCrianca")
     public String cadastraCrianca(Model model,
                                   @RequestParam(name = "nomeCompleto") Optional<String> nome,
                                   @RequestParam(name = "idade") Optional<String> idade,
