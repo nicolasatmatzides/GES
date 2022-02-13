@@ -23,15 +23,15 @@ public class CriancaController {
     @Autowired
     private CriancaService criancaService;
 
-    @GetMapping("/crianca/paginaCadastrar")
+    @GetMapping("crianca/paginaCadastrar")
     public String cadastraCrianca(){return "adm/cadastroCrianca.html";}
 
-    @GetMapping("/crianca/excluir")
+    @GetMapping("crianca/excluir")
     public String excluirCrianca(){
         return "redirect:/loginAdm";
     }
 
-    @GetMapping("/busca")
+    @GetMapping("busca")
     public String busca(Model model,
                         @RequestParam(name = "idade") String idade,
                         @RequestParam(name = "sexo") String genero) {
@@ -51,7 +51,7 @@ public class CriancaController {
         return "user/success.html";
     }
 
-    @PostMapping("/cadastroCrianca")
+    @PostMapping("cadastroCrianca")
     public String cadastraCrianca(Model model,
                                   @RequestParam(name = "nomeCompleto") Optional<String> nome,
                                   @RequestParam(name = "idade") Optional<String> idade,
