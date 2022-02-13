@@ -7,10 +7,11 @@ import com.adocao.gpms.service.CriancaService;
 import com.adocao.gpms.service.DuvidaService;
 import com.adocao.gpms.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -52,7 +53,7 @@ public class AdminController {
     public String listaDuvida(Model model){
         List<Duvida> duvidas = duvidaService.listaDuvida();
         model.addAttribute("listaDuvida", duvidas);
-        return "mensagens.html";
+        return "adm/mensagens.html";
     }
 
     @GetMapping("/loginAdm")
