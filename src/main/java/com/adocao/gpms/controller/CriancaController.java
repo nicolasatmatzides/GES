@@ -31,13 +31,12 @@ public class CriancaController {
         return "redirect:/loginAdm";
     }
 
-    @GetMapping("busca")
+    @GetMapping("/busca")
     public String busca(Model model,
                         @RequestParam(name = "idade") String idade,
                         @RequestParam(name = "sexo") String genero) {
 
         List<Crianca> criancaList = criancaService.busca(idade, genero);
-
         model.addAttribute("criancas", criancaList);
 
         return "user/result.html";
@@ -51,7 +50,7 @@ public class CriancaController {
         return "user/success.html";
     }
 
-    @PostMapping("cadastroCrianca")
+    @PostMapping("/cadastroCrianca")
     public String cadastraCrianca(Model model,
                                   @RequestParam(name = "nomeCompleto") Optional<String> nome,
                                   @RequestParam(name = "idade") Optional<String> idade,
